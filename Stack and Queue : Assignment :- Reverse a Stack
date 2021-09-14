@@ -1,0 +1,85 @@
+Reverse a Stack
+Send Feedback
+You have been given two stacks that can store integers as the data. Out of the two given stacks, one is populated and the other one is empty. You are required to write a function that reverses the populated stack using the one which is empty.
+For Example:
+Alt txt
+
+Input Format :
+The first line of input contains an integer N, denoting the total number of elements in the stack.
+
+The second line of input contains N integers separated by a single space, representing the order in which the elements are pushed into the stack.
+Output Format:
+The only line of output prints the order in which the stack elements are popped, all of them separated by a single space. 
+Note:
+You are not required to print the expected output explicitly, it has already been taken care of. Just make the changes in the input stack itself.
+Constraints:
+1 <= N <= 10^3
+-2^31 <= data <= 2^31 - 1
+
+Time Limit: 1sec 
+Sample Input 1:
+6
+1 2 3 4 5 10
+Note:
+Here, 10 is at the top of the stack.
+Sample Output 1:
+1 2 3 4 5 10
+Note:
+Here, 1 is at the top of the stack.
+Sample Input 2:
+5
+2 8 15 1 10
+Sample Output 2:
+2 8 15 1 10
+
+
+
+
+
+import java.util.*;
+public class Solution {
+
+	public static void reverseStack(Stack<Integer> s1, Stack<Integer> s2) {
+		int temp;
+		int counter;
+		int limiter = s1.size() - 1;
+		for (int i = 0; i < s1.size() - 1; i++) {
+			counter = i;
+			s2.push(s1.pop());
+			temp = s2.pop();
+			while (counter < limiter) {
+				s2.push(s1.pop());
+				counter++;
+			}
+			s1.push(temp);
+			while (s2.size() != 0) {
+				s1.push(s2.pop());
+}
+	}
+}
+}
+// public class Solution {
+//     public static Stack<Integer> reverse(Stack<Integer> s1,Stack<Integer> s2) {
+//         Stack<Integer> ketan= new Stack();   
+//         if(s1.isEmpty()){
+//                return ketan;
+//            }
+//         int k=s1.pop();
+//         reverse(s1,s2);
+//         int j;   
+//         while(!s1.isEmpty()){
+//               j=s1.pop();
+//                s2.push(j);
+//            }
+//                s2.push(k);
+//          while(!s2.isEmpty()){
+//               j=s2.pop();
+//                s1.push(j);
+//            }
+//         return s1;
+// 	}
+        
+// 	public static void reverseStack(Stack<Integer> s1, Stack<Integer> s2) {
+//            reverse(s1,s2);
+//         }
+// }
