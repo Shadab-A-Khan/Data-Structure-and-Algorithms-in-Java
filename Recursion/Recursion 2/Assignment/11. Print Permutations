@@ -1,0 +1,138 @@
+Print Permutations
+Send Feedback
+Given an input string (STR), print all possible permutations of the input string.
+Note:
+The input string may contain the same characters, so there will also be the same permutations.
+The order of permutations doesn’t matter.
+Input Format:
+The only input line contains a string (STR) of alphabets in lower case
+Output Format:
+Print each permutations in a new line
+Note:
+You do not need to print anything, it has already been taken care of. Just implement the function.  
+Constraint:
+1<=length of STR<=8
+Time Limit: 1sec
+Sample Input 1:
+cba
+Sample Output 1:
+abc
+acb
+bac
+bca
+cab
+cba
+
+
+
+
+public class Solution {
+
+	public static void FindPermutations(String str) {
+		// Write your code here
+        
+        printPermutations(str,"");
+
+	}
+    
+    public static void printPermutations(String input, String result)
+	{
+		if(input.length() == 0)
+		{
+			System.out.println(result);
+			return;
+		}
+		if(result.length() >= 1)
+		{
+			for(int i=0;i<result.length() + 1;i++)
+				printPermutations(input.substring(1), result.substring(0,i) + input.charAt(0) + result.substring(i,result.length()));
+		}
+		else
+			printPermutations(input.substring(1),result + input.charAt(0));
+	}
+    
+}
+
+
+
+
+
+
+
+
+
+             //1
+
+
+
+
+
+
+
+// public class Solution {
+    
+//     public static void  FindPermutations(String str , String output){
+   
+//     if(str.length()==0){
+//         return;
+//     }
+//     if(str.length()==1){
+//         return str;
+//     }    
+        
+//       String smallAns = FindPermutaions(str.substring(1) , str.charAt(0));
+//         System.out.println(smallAns);
+// }
+
+// 	public static void FindPermutations(String str) {
+// 		return FindPermutations(str," ");
+// 	}
+// }
+
+
+
+
+
+
+          //2
+
+
+
+
+
+
+
+
+// public class Solution {
+//     public static void FindPermutation(String str, int l, int r){
+//         if(l>r){
+//             return;
+//         }
+        
+//         if(l==r){
+//             System.out.println(str);
+//         }else{
+//             for(int i=0 ; i<r ; i++){
+//                 str=swap(str , l, r);
+//                 FindPermutation(str , l+1 , r);
+//                 str=swap(str, l , r);
+//         }
+//     }
+//     }
+    
+//     public static String swap(String a, int i, int j)
+//     {
+//         char temp;
+//         char[] charArray = a.toCharArray();
+//         temp = charArray[i] ;
+//         charArray[i] = charArray[j - 1];
+//         charArray[j - 1] = temp;
+//         return String.valueOf(charArray);
+//     }
+ 
+
+
+// 	public static void FindPermutations(String str) {
+// 		FindPermutation(str,0,str.length());
+// 	}
+// }
