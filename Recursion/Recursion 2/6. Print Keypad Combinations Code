@@ -1,0 +1,172 @@
+Print Keypad Combinations Code
+Send Feedback
+Given an integer n, using phone keypad find out and print all the possible strings that can be made using digits of input n.
+Note : The order of strings are not important. Just print different strings in new lines.
+Input Format :
+Integer n
+Output Format :
+All possible strings in different lines
+Constraints :
+1 <= n <= 10^6
+Sample Input:
+23
+Sample Output:
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf
+
+
+
+
+public class solution {
+
+	
+
+        public static void printKeypad(int input){
+// Write your code here
+           String[] digits = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"} ;
+           helper(input,"",digits) ;
+      }
+
+    public static void helper(int n , String ans , String[] digits){
+
+    if(n == 0){
+        System.out.println(ans) ;
+        return ;
+    }
+      int ld = n%10 ;
+      String str = digits[ld] ;
+      for(int i = 0 ; i < str.length() ; i++){
+          helper(n/10,str.charAt(i)+ans,digits) ;
+       }
+    }
+}
+
+
+
+
+
+
+//public static ArrayList<String> getKPC(String str , String[] arr) {
+        
+//         if(str.length() == 0){
+//             ArrayList<String> br = new ArrayList<>() ;
+//             br.add("") ;
+//             return br ;
+//         }
+//         ArrayList<String> mr = new ArrayList<>() ;
+//         ArrayList<String> rr = getKPC(str.substring(1),arr) ;
+//         String curr = arr[str.charAt(0)-'0'] ;
+//         for(int i = 0 ; i < curr.length() ; i++){
+//             char cc = curr.charAt(i) ;
+//             for(String val : rr){
+//                 mr.add(cc+val) ;
+//             }
+//         }
+//         return mr ;
+//     }
+
+// public class solution {
+//      public static String[] help(int n){
+//         String a[]={""};
+//         if(n<1 || n>9)
+//             System.exit(0);
+//         if(n==1){
+//             String[] out={""};
+//         }
+//         if(n==2){
+//             String[] out={"a","b","c"};
+//             return out;
+//         }
+//         if(n==3){
+//             String[] out={"d","e","f"};
+//             return out;
+//         }
+//         if(n==4){
+//             String[] out={"g","h","i"};
+//             return out;
+//         }
+//         if(n==5){
+//             String[] out={"j","k","l"};
+//             return out;
+//         }
+//         if(n==6){
+//             String[] out={"m","n","o"};
+//             return out;
+//         }
+//         if(n==7){
+//             String[] out={"p","q","r","s"};
+//             return out;
+//         }
+//         if(n==8){
+//             String[] out={"t","u","v"};
+//             return out;
+//         }
+//         if(n==9){
+//             String[] out={"w","x","y","z"};
+//             return out;
+//         }
+//         return a;
+
+// 	public static void printKeypad(int input){
+        
+//         if(input.length() == 0){
+// 			return;
+// 		}
+	
+//         int ld=input%10;
+//         String[] la=help(ld);  
+//         String[] sa=help(input/10);
+
+//        printSubsequences(input.substring(1),input.charAt(0));
+// 	}
+		
+// 	}
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//public static ArrayList<String> getKPC(String str , String[] arr) {
+        
+//         if(str.length() == 0){
+//             ArrayList<String> br = new ArrayList<>() ;
+//             br.add("") ;
+//             return br ;
+//         }
+//         A
+//ArrayList<String> mr = new ArrayList<>() ;
+//         ArrayList<String> rr = getKPC(str.substring(1),arr) ;
+//         String curr = arr[str.charAt(0)-'0'] ;
+//         for(int i = 0 ; i < curr.length() ; i++){
+//             char cc = curr.charAt(i) ;
+//             for(String val : rr){
+//                 mr.add(cc+val) ;
+//             }
+//         }
+//         return mr ;
+//     }
