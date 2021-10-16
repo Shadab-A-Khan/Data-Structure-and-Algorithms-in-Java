@@ -14,10 +14,17 @@
 // 3
 
 
-public class solution {
-	
+public class Solution {
+
 	public int solve(String S,String V){
-		
+        
+        /* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+        */
+			
 	int m = S.length();
 		int n = V.length();
 		int[][] storage = new int[m + 1][n + 1];
