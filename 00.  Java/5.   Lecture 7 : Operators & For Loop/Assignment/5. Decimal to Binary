@@ -1,0 +1,143 @@
+Decimal to Binary
+Send Feedback
+Given a decimal number (integer N), convert it into binary and print.
+The binary number should be in the form of an integer.
+Note: The given input number could be large, so the corresponding binary number can exceed the integer range. So you may want to take the answer as long for CPP and Java.
+
+
+Note for C++ coders: Do not use the inbuilt implementation of "pow" function. The implementation of that function is done for 'double's and it may fail when used for 'int's, 'long's, or 'long long's. Implement your own "pow" function to work for non-float data types.
+
+
+Input format :
+Integer N
+Output format :
+Corresponding Binary number (long)
+Constraints :
+0 <= N <= 10^5
+Sample Input 1 :
+12
+Sample Output 1 :
+1100
+Sample Input 2 :
+7
+Sample Output 2 :
+111
+
+
+
+
+
+// import java.util.Scanner;
+
+// public class Main {
+	
+// 	public static void main(String[] args) {
+// // 		Scanner s=new Scanner (System.in);
+       
+// //         int n=s.nextInt();
+        
+// //         int p=1;
+        
+// //         int sum=0;
+        
+// //         while(n>0)
+// //         {
+// //             int rem=n%2;
+            
+// //             int n1=rem*p;
+            
+// //             sum=sum+n1;
+             
+// //             p=p*10;
+            
+// //             n=n/2;
+// //         }
+        
+// //         System.out.print(sum);
+
+
+// // 	}
+// // }
+
+
+
+
+
+ import java.util.*;
+import java.lang.*;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+        Scanner scan = new Scanner(System.in);
+        int N=scan.nextInt();
+        System.out.println(Integer.toString(N, 2));        
+
+	}
+}
+
+
+
+
+
+
+//##The java.lang.Integer.toString(int a, int base) is an inbuilt method in Java which is used to return a string representation of the argument a in the base, specified by the second argument base. If the radix/base is smaller than Character.MIN_RADIX or larger than Character.MAX_RADIX, then the base 10 is used. The ASCII characters which are used as digits: 0 to 9 and a to z.
+// Syntax:
+// public static String toString(int a, int base)
+// Parameter: The method accepts two parameters:
+
+// a: This is of integer type and refers to the integer value that is to be converted.
+// base: This is also of integer type and refers to the base that is to be used while representing the strings.
+// Return Value: The method returns a string representation of the specified argument in the specified base.
+
+// Examples:
+
+// Input: a = 71, base = 2
+// Output: 1000111
+
+// Input: a = 314, base = 16
+// Output: 13a
+// Below programs illustrate the Java.lang.Integer.toString(int a, int base) Method:
+// Program 1:
+
+
+// // Java program to illustrate the
+// // toString(int, int) Method
+// import java.lang.*;
+  
+// public class Geeks{
+  
+// public static void main(String[] args) {
+  
+//         Integer a = new Integer(10);
+      
+//     // It returns a string representation 
+//         // in base 2
+//     String returnvalue = a.toString(5254, 2);
+//     System.out.println("String Value = " + 
+//                             returnvalue);
+  
+//     // It returns a string representation 
+//         // in base 8
+//     returnvalue = a.toString(35, 8);
+//     System.out.println("String Value = " + 
+//                             returnvalue);
+  
+//     // It returns a string representation 
+//         // in base 16
+//     returnvalue = a.toString(47, 16);
+//     System.out.println("String Value = " + 
+//                             returnvalue);
+  
+//     // It returns a string representation 
+//         // in base 10
+//     returnvalue = a.toString(451, 10);
+//     System.out.println("String Value = " + 
+//                             returnvalue);
+// }
+// } 
+// Output:
+// String Value = 1010010000110
+// String Value = 43
+// String Value = 2f
+// String Value = 451
