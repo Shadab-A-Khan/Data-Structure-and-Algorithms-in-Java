@@ -1,0 +1,66 @@
+Palindrome number
+Send Feedback
+Write a program to determine if given number is palindrome or not. Print true if it is palindrome, false otherwise.
+Palindrome are the numbers for which reverse is exactly same as the original one. For eg. 121
+Sample Input 1 :
+121
+Sample Output 1 :
+true
+Sample Input 2 :
+1032
+Sample Output 2 :
+false
+
+
+
+
+
+// import java.util.*;
+// public class Main {
+	
+// 	public static void main(String[] args) {
+// 		// Write your code here
+//         Scanner sc = new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int a=n;
+//         if(n/10==0){
+//             System.out.println("true");
+//         }
+//         int p=0;
+//        while(n>0){
+//             int rem=n%10;
+//            p=p+rem;
+//             if(n/10>0){
+//                 p=p*10;
+//               // n=n/10;
+//             }
+        
+//          }
+//         if(p==a){
+//             System.out.println("true");
+//          }else{
+//             System.out.println("false");
+//         }
+// 	}
+// }
+import java.util.Scanner;
+
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int num=s.nextInt();
+		int temp=num;
+		int reverse=0;
+		while(temp>0) {
+			int base=temp%10;
+			reverse=reverse*10+base;
+			temp/=10;
+		}
+		if(reverse==num){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+	}
+}
