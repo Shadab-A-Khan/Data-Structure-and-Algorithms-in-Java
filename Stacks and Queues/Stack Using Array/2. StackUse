@@ -3,7 +3,7 @@ package stack1;
 public class StackUse {
 
 	public static void main(String[] args) throws StackEmptyException, StackFullException {
-		StackUsingArray stack = new StackUsingArray();
+		StackUsingArray stack = new StackUsingArray(100);
 		
 		
 		int[] arr = {1 ,4, 5 ,7 ,9};
