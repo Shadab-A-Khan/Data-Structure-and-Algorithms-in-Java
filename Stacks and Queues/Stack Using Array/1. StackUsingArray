@@ -5,8 +5,8 @@ public class StackUsingArray {
 	private int data[];
 	private int topIndex;
 	
-	public StackUsingArray(int size){
-		data=new int[size];
+	public StackUsingArray(){
+		data=new int[2];
 		topIndex=-1;
 	}
 
@@ -15,19 +15,31 @@ public class StackUsingArray {
 		
 	}
 	
-	public void push(int element) throws StackFullException{
+	public void push(int element) {//throws StackFullException{
 		
 		if(topIndex==data.length-1) {
 //			StackFullException e = new StackFullException();
 //			throw e;
-			throw new StackFullException();
-			//throw exception
+			//throw new StackFullException();
+//          throw exception
+			doubleCapacity();
 		}
 		//topIndex++;
 		data[++topIndex]=element;
 		
 	}
 	
+	private void doubleCapacity() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Double Capacity");
+		int[] temp=data;
+		data=new int[2*temp.length];
+		for(int i=0; i<temp.length ; i++) {
+			data[i]=temp[i];
+		}
+	}
+
 	public int pop() throws StackEmptyException {
 		if(topIndex==-1) {
 			//throw StackEmptyException
