@@ -1,0 +1,61 @@
+package queue;
+
+import LinkedList.Node;
+
+public class QueueUsingLinkedList<T> {
+     private Node<T> front;
+     private Node<T> rear;
+     int size;
+     
+     public QueueUsingLinkedList(){
+    	 front=null;
+    	 rear=null;
+    	 size=0;
+     }
+     
+     public int size() {
+    	 return size;
+     }
+     
+     public boolean isEmpty() {
+    	 return size==0;
+     }
+     
+     public void enqueue(T element) {
+    	 
+    	 Node<T> temp=new Node<T>(element);
+    	 
+    	 if(rear==null) {
+    		 front=temp;
+    		 rear=temp;
+    		 //return;
+    	 }else {
+    		 rear.next=temp;
+    	     rear=temp;
+    	 }
+    	 size++;
+     }
+     
+     public T front() throws QueueEmptyException{
+    	 
+    	 if(front==null) {
+    		 throw new QueueEmptyException();
+    	 }
+    	 return front.data;
+     }
+     
+     public T dequeue() throws QueueEmptyException {
+    	 if(front==null) {
+    		 throw new QueueEmptyException();
+    	 }
+    	T temp=front.data;
+    	front=front.next;
+    	if(front==null) {
+    		rear=null;
+    	}
+    	size--;
+    	return temp;
+       
+     }
+      
+}
