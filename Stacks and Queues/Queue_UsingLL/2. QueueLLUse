@@ -1,0 +1,17 @@
+package queue;
+
+public class QueueLLUse {
+
+	public static void main(String[] args) throws QueueEmptyException {
+		QueueUsingLinkedList<Integer> q = new QueueUsingLinkedList<>();
+		int arr[]= {10,20,30,40,50};
+		for(int elem :arr) {
+			q.enqueue(elem);
+		}
+		
+		while(!q.isEmpty()) {
+			System.out.print(q.dequeue()+" ");
+		}
+	}
+
+}
