@@ -99,3 +99,49 @@ public class Solution {
     }
 
 }
+
+
+
+
+
+
+
+
+//OR
+
+
+
+
+
+import java.util.Stack;
+public class Solution {
+
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		
+    
+ 
+        LinkedListNode<Integer> slow = head;
+        boolean ispalin = true;
+        Stack<Integer> stack = new Stack<Integer>();
+ 
+        while (slow != null) {
+            stack.push(slow.data);
+            slow = slow.next;
+        }
+ 
+        while (head != null) {
+ 
+            int i = stack.pop();
+            if (head.data == i) {
+                ispalin = true;
+            }
+            else {
+                ispalin = false;
+                break;
+            }
+            head = head.next;
+        }
+        return ispalin;
+    }
+}
+
