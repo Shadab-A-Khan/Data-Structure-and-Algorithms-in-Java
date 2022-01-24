@@ -1,0 +1,9 @@
+public static int LargestNode(BinaryTreeNode<Integer> root) {
+		if(root==null) {
+			return -1;
+		}
+		
+		int leftLargest=LargestNode(root.left);
+		int rightLargest=LargestNode(root.right);
+		return Math.max(root.data,Math.max(leftLargest, rightLargest));
+	}
