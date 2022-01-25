@@ -1,0 +1,33 @@
+ package binaryrenew;
+
+public class BinaryTreeReturn {
+    int height;
+    boolean isBalanced;
+}
+   
+   
+   
+   public static BinaryTreeReturn checkBalanceBetter(BinaryTreeNode<Integer> root) {
+		
+		if(root==null) {
+			int height=0;
+			boolean isBal=true;
+			BinaryTreeReturn ans = new BinaryTreeReturn();
+			ans.height=height;
+			ans.isBalanced=isBal;
+			return ans;			
+		}
+		BinaryTreeReturn rootLeft=checkBalanceBetter(root.left);
+		BinaryTreeReturn rootRight=checkBalanceBetter(root.right);
+		
+		boolean isBal =true;
+		int height=1+Math.max(rootLeft.height,rootRight.height);
+		
+		if(Math.abs(rootLeft.height- rootRight.height)>1) {
+			isBal=false;
+		}
+		BinaryTreeReturn ans = new BinaryTreeReturn();
+		ans.height=height;
+		ans.isBalanced=isBal;
+		return ans;
+	}
