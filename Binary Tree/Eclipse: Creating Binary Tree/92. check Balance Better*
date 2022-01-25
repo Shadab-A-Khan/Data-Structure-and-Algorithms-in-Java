@@ -1,12 +1,10 @@
  package binaryrenew;
-
+ 
 public class BinaryTreeReturn {
     int height;
     boolean isBalanced;
 }
-   
-   
-   
+ ----------------------    
    public static BinaryTreeReturn checkBalanceBetter(BinaryTreeNode<Integer> root) {
 		
 		if(root==null) {
