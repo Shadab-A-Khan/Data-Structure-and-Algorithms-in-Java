@@ -1,0 +1,36 @@
+public class Solution {
+    public static int height(BinaryTreeNode<Integer> root){
+        if(root==null){
+            return 0;
+        }
+        int leftHeight=height(root.left);
+        int rightHeight=height(root.right);
+        
+        return 1 + Math.max(leftHeight,rightHeight);
+    }
+
+	public static int diameterOfBinaryTree(BinaryTreeNode<Integer> root){
+		
+        if(root==null){
+            return -1;
+        }
+        
+        if(root.left!=null && root.right!=null){
+              int lh=height(root.left);
+              int rh=height(root.right);
+            return 1+lh+rh;
+        }
+      
+        if(root.left==null && root.right!=null){
+            int rh=height(root.right);
+            return 1+rh;
+        }
+        
+       if(root.left!=null && root.right==null){
+            int lh=height(root.left);
+           return 1+lh;
+        }
+        return 0;
+	}
+	
+}
