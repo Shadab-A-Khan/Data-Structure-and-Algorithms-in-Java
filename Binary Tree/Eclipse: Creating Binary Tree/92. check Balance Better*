@@ -26,6 +26,10 @@ public class BinaryTreeReturn {
 		if(Math.abs(rootLeft.height- rootRight.height)>1) {
 			isBal=false;
 		}
+		
+		if(!rootLeft.isBalanced || !rootRight.isBalanced) {
+			isBal=false;
+		}
 		BinaryTreeReturn ans = new BinaryTreeReturn();
 		ans.height=height;
 		ans.isBalanced=isBal;
