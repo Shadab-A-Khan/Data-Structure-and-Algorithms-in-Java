@@ -1,0 +1,26 @@
+
+public class BinaryTreeUse {
+	public static int height(BinaryTreeNode<Integer> root) {
+		if(root==null) {
+			return 0;
+		}
+		int leftHeight=height(root.left);
+		int rightHeight=height(root.right);
+		return 1+Math.max(leftHeight, rightHeight);
+	}
+	
+	
+	public static boolean isBalanced(BinaryTreeNode<Integer> root) {
+		if(root==null) {
+			return true;
+		}
+		int leftHeight=height(root.left);
+		int rightHeight=height(root.right);
+		
+		if(Math.abs(rightHeight-leftHeight)>1) {
+			return false;
+		}
+		boolean isLeftBalance=isBalanced(root.left);
+		boolean isRightBalance=isBalanced(root.right);
+		return isLeftBalance && isRightBalance;
+	}
