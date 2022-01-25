@@ -1,3 +1,4 @@
+	
 	public static BinaryTreeNode<Integer> removeLeafNode(BinaryTreeNode<Integer> root){
 		if(root==null) {
 			return null;
@@ -6,7 +7,8 @@
 			return null;
 		}
 		
-		root.left=(root.left);
-		root.right=(root.right);
+		root.left=removeLeafNode(root.left);
+		root.right=removeLeafNode(root.right);
 		return root;
 	}
+	
