@@ -1,3 +1,5 @@
+ 
+ 
  public static BinaryTreeNode<Integer> takeInputLeveWise(){
 		
 		 		Scanner sc=new Scanner(System.in);
@@ -26,10 +28,11 @@
 		 				front.right=rightChild;
 		 				pendingNode.add(rightChild);
 		 			}
-		 			
-		 			
-		     }
+					 
+	                        }
 		 	
 		 	return root;	
 		 		
-	  }
+	       }
+	       
+	       
