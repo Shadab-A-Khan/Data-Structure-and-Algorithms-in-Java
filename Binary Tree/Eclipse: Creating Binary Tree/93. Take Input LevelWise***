@@ -1,8 +1,7 @@
-
-	  public static BinaryTreeNode<Integer> takeInputLeveWise(){
+ public static BinaryTreeNode<Integer> takeInputLeveWise(){
 		
 		 		Scanner sc=new Scanner(System.in);
-		 		 System.out.print("Enter Root data");
+		 		System.out.print("Enter Root data");
 		 		int rootData=sc.nextInt();
 		 		if(rootData==-1) {
 		 			return null;
