@@ -37,49 +37,43 @@ Sample Output 2:
 
 
 
-
-
-/*
-	
-	Following is the structure used to represent the Binary Tree Node
-
-	class BinaryTreeNode<T> {
-		T data;
-		BinaryTreeNode<T> left;
-		BinaryTreeNode<T> right;
-
-		public BinaryTreeNode(T data) {
-			this.data = data;
-			this.left = null;
-			this.right = null;
-		}
-	}
-
-*/
-
 public class Solution {
     
-    public static BinaryTreeNode<Integer> buildTree(int[] postOrder, int[] inOrder , int startP , int endP , int startI , int endI){
-        if(startP>endP || startI>endI){
+    public static BinaryTreeNode<Integer> buildTreeHelper(int[] postOrder, int[] inOrder, int startPosO,int endPosO, int starInO,int endInO){
+        if(startPosO>endPosO || starInO>endInO){
             return null;
         }
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(postOrder[endp]);
-        int i=0;
-        while(inOrder[i]!=postOrder[endP]){
-            i++;
+        
+        int rootData=postOrder[endPosO];
+        BinaryTreeNode<Integer> root=new BinaryTreeNode<Integer>(rootData);
+       // int count=-1;
+        int rootIndex=0;
+        for(int i=starInO;i<=endInO;i++){
+           if(rootData==inOrder[i]){
+               rootIndex=i;
+               break;
+           }
+            //++count;
         }
-        //  root.left=buildTree(postOrder,inOrder, startP ,endP-1 ,startI , postOrder[endP]-1 )
-        // root.right=buildTree(inOrder,inOrder)
-        // return root;
-         root.left = buildTreeHelper(postOrder, postStart, postStart + k - inStart - 1, inOrder, inStart, k - 1); 
-        root.right = buildTreeHelper(postOrder, postStart + k - inStart, postEnd - 1, inOrder, k + 1, inEnd); 
-        return root; 
+        
+        BinaryTreeNode<Integer> left=buildTreeHelper(postOrder,inOrder,startPosO,  (startPosO+rootIndex-starInO)-1  ,starInO,rootIndex-1);
+        BinaryTreeNode<Integer> right=buildTreeHelper(postOrder,inOrder, (startPosO+rootIndex-starInO)  ,endPosO-1, rootIndex+1,endInO);
+        root.left=left;
+        root.right=right;
+        return root;
+        
+        
         
     }
 
 	public static BinaryTreeNode<Integer> buildTree(int[] postOrder, int[] inOrder) {
 		//Your code goes here
-        return buildTree(postOrder, inorder, 0 , postOrder.length-1 , 0 , inOrder.length);
+        BinaryTreeNode<Integer> root= buildTreeHelper(postOrder,inOrder,0,postOrder.length-1,0,inOrder.length-1);
+        return root;
 	}
 
 }
+
+
+
+
