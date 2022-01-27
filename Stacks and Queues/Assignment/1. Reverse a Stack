@@ -57,3 +57,83 @@ public class Solution {
         }
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Stack;
+public class Solution {
+
+	public static void reverseStack(Stack<Integer> input, Stack<Integer> extra) {
+		//Your code goes here
+        if(input.size()<=1){
+            return;
+        }
+        
+        int firstValue=input.pop();
+        reverseStack(input , extra);
+        
+        
+        while(!input.isEmpty()){
+            extra.push(input.pop());
+        }
+        input.push(firstValue);
+        
+        while(!extra.isEmpty()){
+            input.push(extra.pop());
+        }
+        
+        
+        while(!input.isEmpty()){
+            System.out.print(input.pop()+ " ");
+        }
+	}
+}
+
+
+//OR
+
+
+// import java.util.Stack;
+// public class Solution {
+
+// 	public static void reverseStack(Stack<Integer> input, Stack<Integer> extra) {
+//         Stack<Integer> helper1=new Stack<>();
+//         Stack<Integer> helper2=new Stack<>();
+// 		reverseStackHelper(input , helper1, helper2);
+// 	}
+    
+//     public static void reverseStackHelper(Stack<Integer> input, Stack<Integer> helper1, Stack<Integer> helper2){
+//         while(!input.isEmpty()){
+//             helper1.push(input.pop());
+//         }
+        
+//         while(!helper1.isEmpty()){
+//             helper2.push(helper1.pop());
+//         }
+        
+//         while(!helper2.isEmpty()){
+//             input.push(helper2.pop());
+//         }
+        
+//         while(!input.isEmpty()){
+//             System.out.print(input.pop()+ " ");
+//         }
+//     }
+// }
