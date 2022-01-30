@@ -34,6 +34,88 @@ Sample Output 2:
 6 10 
 2 3 
 9 
+/*
+	
+	Following is the structure used to represent the Binary Tree Node
+
+	class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+
+*/
+
+public class Solution {
+    public static BinaryTreeNode<Integer> buildTree(int[] post, int[] in, int postSI, int postEI, int inSI,int inEI){
+       if(inSI>inEI){
+           return null;
+       }
+    
+    
+    int rootData=post[postEI];
+    BinaryTreeNode<Integer> root=new BinaryTreeNode<Integer>(rootData);
+    int siPostLeft=postSI;
+    int siInLeft=inSI;
+    int eiInRight=inEI;
+    int rootIndex=-1;
+    for(int i=inSI;i<=inEI;i++){
+        if(in[i]==rootData){
+            rootIndex=i;
+            break;
+        }
+            
+    }
+        
+        
+       
+    int eiInLeft=rootIndex-1;
+    int siInRight=rootIndex+1;
+        
+   
+   // int leftSubtreeLength=eiInLeft-siInLeft-1;
+    //int RightSubtreeLength=eiInRight-siInRight+1;
+   // int eiPostLeft=siPostLeft+leftSubtreeLength-1;
+   // int siPostRight=eiPostLeft+1;
+    //int eiPostRight=siPostLeft+leftSubtreeLength;
+        
+    int eiPostLeft=postSI+(rootIndex-inSI)-1;
+    int siPostRight =postSI+(rootIndex-inSI);
+    int eiPostRight=postEI-1;
+        
+    BinaryTreeNode<Integer> leftChild=buildTree(post, in, siPostLeft, eiPostLeft, siInLeft, eiInLeft);
+    BinaryTreeNode<Integer> rightChild=buildTree(post, in, siPostRight, eiPostRight, siInRight, eiInRight);
+    root.left=leftChild;
+    root.right=rightChild;
+    return root;
+    
+    
+}
+
+	public static BinaryTreeNode<Integer> buildTree(int[] post, int[] in) {
+		//Your code goes here
+          BinaryTreeNode<Integer> root=buildTree(post,in,0,post.length-1,0,in.length-1);
+       return root;
+        
+        
+        
+	}
+
+}
+
+
+
+
+
+//OR
+
+
 
 
 
