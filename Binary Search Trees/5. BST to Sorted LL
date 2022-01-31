@@ -37,23 +37,30 @@ public class Solution {
 	 */
 
 	public static LinkedListNode<Integer> constructLinkedList(BinaryTreeNode<Integer> root) {
-      	if(root == null)
+      	if(root == null){
             return null;
+        }
+            
         LinkedListNode<Integer> leftLL = constructLinkedList(root.left);
         if(leftLL != null)
         {
             LinkedListNode<Integer> temp = leftLL;
-            while(temp.next != null)
+            while(temp.next != null){
                 temp = temp.next;
-            temp.next = new LinkedListNode<Integer>(root.data);
-        }
-        else
+            }
+                temp.next = new LinkedListNode<Integer>(root.data);
+            
+        }else{
             leftLL = new LinkedListNode<Integer>(root.data);
+        }
+        
+            
         LinkedListNode<Integer> rightLL = constructLinkedList(root.right);
         LinkedListNode<Integer> temp = leftLL;
-        while(temp.next != null)
+        while(temp.next != null){
             temp = temp.next;
-        temp.next = rightLL;
-        return leftLL;
+        }
+            temp.next = rightLL;
+            return leftLL;  
 	}
 }
