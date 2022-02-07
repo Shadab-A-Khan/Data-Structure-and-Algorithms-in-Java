@@ -32,6 +32,86 @@ Sample Input 1:
 Sample Output 1:
 2
 */
+
+
+
+   class  bstSubTreeReturn{
+        int min;
+        int max;
+        int height;
+        boolean isBst;
+    }
+
+public class Solution {
+	/*
+	 * BinaryTreeNode class
+	 * 
+	 * class BinaryTreeNode<T> 
+	 * { 
+	 * 		T data; 
+	 * 		BinaryTreeNode<T> left; 
+	 * 		BinaryTreeNode<T> right;
+	 *		public BinaryTreeNode(T data) 
+	 *		{
+	 *  		this.data = data; 
+	 *  	} 
+	 *  }
+	 */
+    
+	public static bstSubTreeReturn largestBSTSubtreeHelper(BinaryTreeNode<Integer> root){
+        if(root==null){
+            bstSubTreeReturn ans=new bstSubTreeReturn();
+            ans.max=Integer.MIN_VALUE;
+            ans.min=Integer.MAX_VALUE;
+            ans.isBst=true;
+            ans.height=0;
+            return ans;           
+        }
+       bstSubTreeReturn left=largestBSTSubtreeHelper(root.left);
+       bstSubTreeReturn right=largestBSTSubtreeHelper(root.right);
+        
+        if(!(right.isBst && right.min>root.data)){
+            right.isBst=false;
+        }
+        if(!(left.isBst && left.max<root.data)){
+            left.isBst=false;
+        }
+        
+        bstSubTreeReturn ans=new bstSubTreeReturn();
+        if(!left.isBst || !right.isBst || root.data>right.min || root.data<left.max){
+            if(left.height>right.height){
+                left.isBst=false;
+                return left;
+            }else{
+                right.isBst=false;
+                return right;
+            }    
+        }
+        ans.isBst=true;
+        ans.min=Math.min(left.min,Math.min(right.min,root.data));
+        ans.max=Math.max(left.max,Math.max(right.max,root.data));
+        ans.height=Math.max(left.height,right.height)+1;
+        return ans;
+        
+    }
+	public static int largestBSTSubtree(BinaryTreeNode<Integer> root) {
+        return largestBSTSubtreeHelper(root).height;
+	}
+
+}
+
+
+
+
+
+                                      //OR
+				      
+				      
+				      
+				      
+				      
+				      
+				      
 public class Solution {
 	/*
 	 * BinaryTreeNode class
