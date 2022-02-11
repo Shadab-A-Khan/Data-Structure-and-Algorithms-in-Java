@@ -20,46 +20,116 @@ Sample Output :
 
 
 
-// ZigZag tree
-// Send Feedback
-// Given a binary tree, print the zig zag order i.e print level 1 from left to right, level 2 from right to left and so on. This means odd levels should get printed from left to right and even level right to left.
-// Input format :
 
-// Elements in level order form (separated by space)
 
-// (If any node does not have left or right child, take -1 in its place)
 
-// Output Format :
 
-// Elements are printed level wise, each level in new line (separated by space).
+/*
+	
+	Following is the structure used to represent the Binary Tree Node
 
-// Sample Input :
-// 5 6 10 2 3 -1 -1 -1 -1 -1 9 -1 -1
-// Sample Output :
-// 5
-// 10 6
-// 2 3
-// 9
-
-import java.util.ArrayList;
-import java.util.*;
-
-public class Solution {
-
-	/*	Binary Tree Node class
-	 * 
-	 * class BinaryTreeNode<T> {
+	class BinaryTreeNode<T> {
 		T data;
 		BinaryTreeNode<T> left;
 		BinaryTreeNode<T> right;
 
 		public BinaryTreeNode(T data) {
 			this.data = data;
+			this.left = null;
+			this.right = null;
 		}
 	}
-	 */
 
-	public static void printZigZag(BinaryTreeNode<Integer> root) {
+ */
+ 
+ 
+import java.util.Stack;
+public class Solution {
+
+	public static void printZigZag(BinaryTreeNode<Integer> root){
+
+        Stack<BinaryTreeNode<Integer>> st = new Stack<>();
+        
+        QueueUsingLL<BinaryTreeNode<Integer>> q = new QueueUsingLL<>();
+        
+        int level = 1;
+        
+        q.enqueue(root);
+        
+        while(!q.isEmpty()){
+            
+            BinaryTreeNode<Integer> frontNode = null;
+            
+            try{
+                frontNode = q.dequeue();
+            }
+            
+            catch(QueueEmptyException e){
+                return;
+            }
+            
+            System.out.print(frontNode.data+" ");
+            
+            if(level%2==0){
+                
+                if(frontNode.right!=null){
+                    st.push(frontNode.right);
+                }
+                
+                if(frontNode.left!=null){
+                    st.push(frontNode.left);
+                }
+                
+            }
+            
+            else{
+               
+                 if(frontNode.left!=null){
+                    st.push(frontNode.left);
+                 }
+                
+                 if(frontNode.right!=null){
+                    st.push(frontNode.right);
+                }
+                
+            }
+            
+            if(q.isEmpty()){
+                
+                while(!st.isEmpty()){
+                    
+                    q.enqueue(st.pop());
+                    
+                }
+                
+                System.out.println();
+                
+                level++;
+
+            }
+    
+        }
+	}
+
+}
+
+
+
+
+
+
+
+
+___________________________________________OR_____________________________________________________________
+
+
+
+
+
+
+
+
+public static void printZigZag(BinaryTreeNode<Integer> root) {
 		
 
 Stack<BinaryTreeNode<Integer>> s1 = new Stack<BinaryTreeNode<Integer>>();
