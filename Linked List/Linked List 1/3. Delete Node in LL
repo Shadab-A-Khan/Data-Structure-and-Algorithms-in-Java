@@ -69,22 +69,25 @@ Sample Output 2 :
 
 public class Solution {
 	public static LinkedListNode<Integer> deleteNode(LinkedListNode<Integer> head, int pos) {
-		if(head==null){
+        
+        if(head==null){
             return null;
         }
-        
-        int count=0 ; 
+        if(pos==0){
+            head=head.next;
+            return head;
+        }
         LinkedListNode<Integer> temp=head;
-        while(count<(pos-1) && temp!=null){
+        int count=0;
+        while(count<pos-1 && temp!=null){
             temp=temp.next;
             count++;
         }
+        if(temp!=null && temp.next!=null){
+           temp.next=temp.next.next;
         
-        if(temp==null || temp.next==null){
-            return head;
         }
+        return head; 
         
-        temp.next=temp.next.next;
-        return head;
 	}
 }
