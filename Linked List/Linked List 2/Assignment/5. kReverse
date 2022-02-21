@@ -70,7 +70,7 @@ public class Solution {
         if(k==0 || k==1){
             return head;
         }
-		LinkedListNode<Integer> current = head; 
+       LinkedListNode<Integer> current = head; 
        LinkedListNode<Integer> next = null; 
        LinkedListNode<Integer> prev = null; 
        int count = 0; 
