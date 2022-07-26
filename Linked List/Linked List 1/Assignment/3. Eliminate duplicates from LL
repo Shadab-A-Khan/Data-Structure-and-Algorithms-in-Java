@@ -54,21 +54,24 @@ Sample Output 2 :
 public class Solution {
 
 	public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
-		if(head==null){
-            return null;
+		//Your code goes here
+        if(head == null) {
+            return head;
         }
         
-        LinkedListNode<Integer> temp=head;
-        while(temp.next!=null){
+        LinkedListNode<Integer> temp = head;
+        while(temp.next != null) {
             if(temp.next.data.equals(temp.data)){
-                temp.next=temp.next.next;
-            }else{
-                temp=temp.next;
+                temp.next = temp.next.next;
+            }
+            else {
+                temp = temp.next;
             }
         }
+        
         return head;
-        
-        
 	}
 
 }
+
+
