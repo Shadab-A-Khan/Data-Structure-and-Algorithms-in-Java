@@ -53,7 +53,9 @@ public class Solution {
         if(root1.children.size()!=root2.children.size()){
             return false;
         }
-        
+        if(!root1.data.equals(root2.data)){
+            return false;
+        }
         for(int i=0 ; i<root2.children.size() ; i++){
             if (!checkIdentical(root1.children.get(i) , root2.children.get(i))){
                 return false;
