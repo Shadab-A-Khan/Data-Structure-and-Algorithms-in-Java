@@ -25,6 +25,44 @@ false
 
 
 
+
+public class Solution {
+   public static boolean checkNumber(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    //boolean ans;
+    if(size==0)
+        return false;
+    else{
+    if(input[size-1]==x)
+        return true;
+    else{
+        return checkNumber(input,size-1,x);
+    }
+    }    
+    //return ans;
+}
+	public static boolean checkNumber(int input[], int x) {
+        int size=input.length;
+        return checkNumber(input,size,x);
+	}
+}
+
+
+
+
+
+
+
+
+//OR
+
+
+
+
 public class Solution {
 
  /* Your class should be named Solution
