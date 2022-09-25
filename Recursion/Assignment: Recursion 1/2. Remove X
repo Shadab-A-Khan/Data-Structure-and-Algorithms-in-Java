@@ -46,15 +46,29 @@ public class solution {
 	}
 }
 
+----------------OR ----------------------
 
-// public static String function(String s, char a){
-//     if(s.length()==0){
-//         return s;
-//     }
-//     String output = function(s.substring(1),a));
-//     if(charAt(0)! = a){
-//         return s.charAt(0)+output;
-//     }else{
-//         return output;
-//     }
-// }
+
+
+
+
+public class solution {
+
+	public static String removeX(String input){
+        if(input.length()==0){
+            return "";
+        }
+		String ans="";
+        if(input.charAt(0)!='x'){
+            ans+=input.charAt(0);
+        }
+       return ans+removeX(input.substring(1));
+	}
+}
+
+
+
+
+
+
+
