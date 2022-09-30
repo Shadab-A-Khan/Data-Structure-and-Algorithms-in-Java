@@ -59,6 +59,61 @@ Sample Output 2:
 
 
 
+public class Solution {
+
+    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+    	//Your code goes here
+        int k=Math.max(arr1.length,arr2.length);
+        // output=new int[++size];
+        int sum=0,carry=0,i=arr1.length-1,j=arr2.length-1;
+        // int k=size;
+        while(k>=0){
+             if(i>=0 && j>=0){
+                sum=arr1[i]+arr2[j]+carry;
+                carry=sum/10;
+                output[k]=sum%10;
+                i--;j--;
+            }
+            else if(i>=0){
+                sum=carry+arr1[i];
+                carry=sum/10;
+                output[k]=sum%10;
+                i--;
+            }
+        	else if(j>=0){
+                sum=carry+arr2[j];
+                carry=sum/10;
+                output[k]=sum%10;
+                j--;
+            }
+             else{
+                output[0]=carry;
+             }
+            k--;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
