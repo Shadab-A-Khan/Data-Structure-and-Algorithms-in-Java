@@ -41,3 +41,23 @@ public class Solution {
 		return count;
 	}
 }
+
+
+
+
+
+public class Solution {
+
+	public static int countWords(String str) {	
+		
+        if(str.length()==0){
+           return 0;
+        }
+        int c=1;
+  		String st[]=str.split(" ");
+     
+        return st.length;
+	}
+
+}
+
