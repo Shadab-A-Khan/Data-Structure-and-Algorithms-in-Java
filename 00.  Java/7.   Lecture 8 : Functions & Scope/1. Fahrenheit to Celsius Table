@@ -62,3 +62,65 @@ public class Solution {
 		
 	}
 }
+
+
+
+
+
+
+see you have been given a range 
+
+start to finsh
+
+the range consists numbers
+
+in ferhenheit
+
+you just need to conver all the number into that range to celcius
+
+bot not every nuber
+
+you have to covert all the number after cetain gaps that is step in the given quest
+
+like
+
+you have been given range
+
+2 to 20
+
+and the step is 4
+
+so
+
+you will covert 
+
+2
+
+6
+
+10
+
+14
+
+18
+
+to the cel
+
+see line 12 13, 14
+
+you dont need to take those input from the use4r
+
+see line 4
+
+in the funtion it has already been given to you
+
+so just use a loop
+
+and apply the formula and conver it all
+
+Shadab Khan05/10/22 15:15
+formula is
+
+double cel = (5*(i-32))/9;
+
+this
