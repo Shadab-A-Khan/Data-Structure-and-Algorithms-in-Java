@@ -118,7 +118,7 @@ so just use a loop
 
 and apply the formula and conver it all
 
-Shadab Khan05/10/22 15:15
+
 formula is
 
 double cel = (5*(i-32))/9;
