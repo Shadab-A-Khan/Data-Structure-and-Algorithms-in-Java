@@ -44,6 +44,44 @@ public class Solution {
 
 
 
+or
+
+
+
+
+
+
+public class Solution {
+
+	public static String reverseWordWise(String input) {
+		// Write your code here
+		String[] arr = input.split(" ");
+        String reversed = "";
+        for(int i=0;i<arr.length;i++)
+        {
+            if(i==arr.length-1)
+            {
+                reversed = arr[i] + reversed;
+            }
+            else
+                reversed =  " " +arr[i]+reversed;
+        }
+        return reversed;
+    }
+        
+       
+}
+
+
+
+
+
+
+
+
+
+
+
 // // public class Solution {
 
 // // 	public static String reverseWordWise(String input) {
