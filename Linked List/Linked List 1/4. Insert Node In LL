@@ -96,3 +96,47 @@ public class Solution {
          return head;
 	}
 }
+
+
+
+
+
+
+
+see you have been given a pos where 
+
+you need to insert the given data
+
+right
+
+
+but you cannot inset the data itself to insert it inside a linkelist you have to create a node first
+
+so
+
+create a node from the given data
+
+then 
+
+check the pos value that you have been given
+
+if the pos itself is zero
+
+just add it befor the head
+
+and return it from there
+
+else if the pos is some n vaue
+
+value
+
+just use a loop
+
+go till n-1
+
+and add teh node that you ahve create there
+
+and return it from there
+
+Shadab Khan21/10/22 15:29
+?
