@@ -57,3 +57,27 @@ public class Solution {
         }
     }
 }
+
+
+
+
+public class Solution {
+    
+    public static void arrange(int[] arr, int n) {
+        initilize start index with 0 
+        initilize the end og the index that will n-1
+        initilize the value from 1 , ( because the user have given you n = 7 it will start from 1 and end at 7 like 1 2 3 4 5 6 7 )
+    
+        while(the loop will run untill the start is smaller then the end){
+            if(check it is odd or not means divisible by 2 or not and  ***IF ODD ***){
+                update array start index with value
+                increase the value by 1
+                increae the start index by 1
+            }else{
+                update the value at the end of the arr index
+                increase the value by 1
+                decrease the end by 1
+            }
+        }
+    }
+}
