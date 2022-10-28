@@ -23,6 +23,36 @@ Sample Output 3:
 
 
 
+
+
+public class solution {
+
+	public static String removeX(String input){
+        
+       // like as a base case check if the lenght of the string is 0 return an empty string 
+        if(input.length()==0){
+            return "";
+        }
+        //initilize the ans string varible that will store the string
+        //after remove the x character 
+		String ans="";
+        
+        // now check if the first charcter of the sting is x or not 
+        //     if not ,then add it to the ans stirng 
+        if(input.charAt(0)!='x'){
+            ans+=input.charAt(0);
+        }
+        
+        //and then call the recursion from the next character from 
+        //using subtring
+       return ans+removeX(input.substring(1));
+	}
+}
+
+
+----------------OR ----------------------
+
+
 public class solution {
 
 	// Return the changed string
