@@ -45,3 +45,66 @@ public class Main {
         System.out.println(rev);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+int reverse =0;
+int n =1234
+isme se last ka 4 nikalo
+kiu ki reverse karna hai
+to last se 4 nikalne ke 
+liye
+
+n%10 karo
+ye 4 
+remainder dega
+to
+us 4 ko 
+reverse mee add karo
+to reverse =4
+
+pehle number 1234 thha
+last se  4 reverse nikal diya
+to abb
+
+n/10 karo
+ye
+number = 123 kar dega
+firse se sem last se 3 nikalo
+
+
+aur usko
+reverse  me add kar do
+
+pehle se revese me 
+
+reverse =4 thha lekin agar lasst
+ka 4 add karoge to 4+3=7
+    ho jayega
+    leki hme 43 chaiye
+    
+    
+    to pehle se 
+    
+    reveser= 4 hai  na
+    to 4*10 ka do
+        40 ho jayge
+        ab 3 add kar od
+        
+        to 43
+        
+        
+        aise hee sare number pe karna hai
+        
+    
+
