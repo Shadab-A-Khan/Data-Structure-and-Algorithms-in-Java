@@ -1,0 +1,36 @@
+import java.util.*;
+public class PrintSubsetSumToK {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the length of the Array");
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0; i<n; i++) {
+			System.out.println("Enter the values at the indices of the Array");
+			arr[i]=sc.nextInt();
+		}
+		
+		System.out.print("Enter the Target sum");
+		int targetSum= sc.nextInt();
+		
+		subsetSumToK(arr,0,"",0,targetSum);
+		
+	}
+	
+	public static void subsetSumToK(int[] arr, int si, String subset, int subsetSum, int targetSum) {
+		
+		if(si==arr.length) {
+			if(subsetSum==targetSum) {
+			    System.out.println(subset);
+			}
+			return;
+		}
+			
+		subsetSumToK(arr,si+1,subset+arr[si]+",",subsetSum+arr[si],targetSum);
+		subsetSumToK(arr,si+1,subset,subsetSum,targetSum);	
+		
+	}
+
+}
