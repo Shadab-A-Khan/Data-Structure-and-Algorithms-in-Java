@@ -60,6 +60,26 @@ Sample Output 2:
 */
 
 
+ public class Solution {
+
+     public static void deleteAlternateNodes(Node<Integer> head) {
+         Node<Integer> temp=head;
+
+         while(temp!=null && temp.next!=null){
+	 temp.next=temp.next.next;
+             temp=temp.next;
+         }
+
+      }
+        
+ }
+
+
+
+//OR
+
+
+
 public class Solution {
 	public static void deleteAlternateNodes(Node<Integer> head) 
     {
