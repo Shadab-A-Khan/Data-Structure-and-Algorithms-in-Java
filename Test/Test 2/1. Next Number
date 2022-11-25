@@ -34,6 +34,84 @@ class LinkedListNode<T> {
 	}
 }
  ***************/
+ 
+ 
+ 
+
+public class Solution {
+
+public static LinkedListNode<Integer> reverse(LinkedListNode<Integer> head){
+        if(head.next==null){
+            return head;
+        }
+        LinkedListNode<Integer> prev=null,curr=head;
+        while(curr!=null){
+            LinkedListNode<Integer> temp=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=temp;
+        }
+        return prev;
+    }
+
+
+	public static LinkedListNode<Integer> nextLargeNumber(LinkedListNode<Integer> head) {
+		if(head==null){
+			return null;
+		}
+
+		head=reverse(head);  // 5 2 9 3
+		int carry=1;
+		int num;
+        LinkedListNode<Integer> temp=head;
+		 LinkedListNode<Integer> tail=null;
+		while(temp!=null){
+		    num=((temp.data)+carry)%10;
+			carry=((temp.data)+carry)/10;
+			temp.data=num;
+			tail=temp;
+			temp=temp.next;
+		
+		}
+
+		if(carry==1){
+			LinkedListNode<Integer> carryNode=new LinkedListNode<Integer>(carry);
+            tail.next=carryNode;
+		}
+        
+		return reverse(head);
+
+   
+	}
+
+
+}
+
+
+
+
+
+
+//OR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 public class Solution {
   
