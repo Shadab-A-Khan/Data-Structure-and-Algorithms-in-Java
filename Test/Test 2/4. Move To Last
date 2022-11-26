@@ -1,0 +1,80 @@
+Move To Last
+Send Feedback
+Given a linked list and a key in it, the task is to move all occurrences of given key to end of linked list, keeping order of all other elements same.
+Return the updated head of LL.
+Input Format :
+Line 1 : Elements of the linked list ending with -1 (-1 not included)
+Line 2 : Key n, Element which has to shifted
+Output Format :
+Updated linked list
+Constraints :
+1 <= size of list <= 100
+Sample Input 1:
+1 2 2 3 4 5 -1
+2
+Sample Output 1:
+1 3 4 5 2 2 
+Sample Input 2:
+1 1 2 3 4 -1
+1
+Sample Output 2:
+2 3 4 1 1
+
+
+
+
+
+
+
+public class Solution {
+
+	public static Node<Integer> func(Node<Integer> head,int n) {
+        /* Your class should be named Solution
+         * Don't write main().
+         * Don't read input, it is passed as function argument.
+         * Return output and don't print it.
+         * Taking input and printing output is handled automatically.
+         */
+         if(head==null){
+             return null;
+         }
+
+         Node<Integer> temp=head;
+         int count=0;
+         while(temp!=null){
+             if(temp.data==n){
+                  count++;
+             }
+            temp=temp.next;                      
+         }
+
+         Node<Integer> newhead = null;
+         Node<Integer> tail=null;
+         while(head!=null){
+             if(head.data!=n){
+                  if(newhead==null){
+                     newhead=head;
+                     tail=head;
+                  }else{
+                      tail.next=head;
+                      tail=tail.next;
+                  }
+             }
+             head=head.next;
+         }
+         
+         int i=0;
+         while(i<count){
+             tail.next=new Node<>(n);
+             tail=tail.next;
+             i++;
+         }
+        
+       	 return newhead;
+	}
+
+}
+
+
+
+
