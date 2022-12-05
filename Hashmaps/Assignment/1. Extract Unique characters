@@ -20,6 +20,32 @@ abcde
 
 
 
+import java.util.HashMap;
+
+public class Solution {
+
+	public static String uniqueChar(String str){
+		String uniqueStr="";
+	     HashMap<Character , Boolean> ans = new HashMap<>();
+		 for(int i=0; i<str.length(); i++){
+			 if(ans.containsKey(str.charAt(i))){
+                continue;
+			 }else{
+                uniqueStr= uniqueStr+str.charAt(i);
+                ans.put(str.charAt(i), true);
+			 }
+		 }
+         return uniqueStr;
+	}
+}
+
+
+
+
+
+
+
+
 
 
 import java.util.HashMap;
