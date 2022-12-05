@@ -35,6 +35,248 @@ Sample Output 3 :
 
 
 
+
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class Solution {
+
+    public static ArrayList<Integer> longestConsecutiveIncreasingSequence(int[] arr) {
+
+        HashMap<Integer, Boolean> map = new HashMap<>();
+        for(int i=0 ; i<arr.length ; i++){
+            map.put(arr[i],true);
+        }
+
+        for(int i=0; i<arr.length ; i++){
+            if(map.containsKey(arr[i]-1)){
+                map.put(arr[i],false);
+            }
+        }
+        int start=0;
+        int count=0;
+
+        for(int i=0; i<arr.length ; i++){
+            
+            if(map.get(arr[i])==true){
+
+                 int localCount=1;
+                 int localStart=arr[i];
+
+                 while(map.containsKey(localStart+localCount)){
+                     localCount++;
+                 }
+                 
+                if (localCount > count) {
+                     count = localCount;
+                     start = localStart;
+                }            
+            }
+
+        }
+
+        ArrayList<Integer> res = new ArrayList<>();
+        res.add(start);
+        if(count>1){
+        	res.add(start+count-1);
+		}
+        return res;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//OR
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // import java.util.Map;
+// import java.util.HashMap;
+// import java.util.ArrayList;
+
+// public class Solution {
+    
+//     public static ArrayList<Integer> helper(int[] arr){
+//         int n = arr.length;
+//         HashMap<Integer, Boolean> map = new HashMap<>();
+//         // assuming all elements are the start of their respective consecutive sequence
+//         for(int i=0; i<n; i++){
+//             map.put(arr[i], true);
+//         }
+        
+//         // making sure, elements who are actually start of their sequnce, are the ones only true in map
+//         for(int i=0; i<n; i++){
+//             if(map.containsKey(arr[i]-1)){
+//                 map.put(arr[i], false);
+//             }
+//         }
+        
+//         // now only those elements are true in map, who are actually start of their sequence
+//         int globalLen = 0;
+//         int globalStart = 0;
+//         for(int i=0; i<n; i++){
+//             if(map.get(arr[i])==true){
+//                 // arr[i] is start of a consecutive sequence
+//                 int localStart = arr[i];
+//                 int localLen = 1;
+//                 while(map.containsKey(localStart+localLen)){
+//                     localLen++;
+//                 }
+
+//                 // 2 3 -> gl=2; gs=2
+//                 // 5 6 7 -> ll=3; ls=5
+
+
+//                 // s=5
+//                 // e=5 + (6-1)
+
+//                 if(localLen>globalLen){
+//                     globalStart = localStart;
+//                     globalLen = localLen;
+//                 }
+//             }
+//         }
+
+
+//         ArrayList<Integer> res = new ArrayList<>();
+//         res.add(globalStart);
+//         if(globalLen>1){
+//         	res.add(globalStart+globalLen-1);
+// 		}
+//         return res;
+//     }
+    
+// 	public static ArrayList<Integer> longestConsecutiveIncreasingSequence(int[] arr) {
+// 		return helper(arr);
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import java.util.HashMap;
+// import java.util.ArrayList;
+
+// public class Solution {
+// 	public static ArrayList<Integer> longestConsecutiveIncreasingSequence(int[] arr) {
+
+// 		ArrayList<Integer> output = new ArrayList<>();
+// 		HashMap<Integer, Boolean> map = new HashMap<>();
+// 		HashMap<Integer, Integer> lenMap = new HashMap<>();
+// 		for (int i = 0; i < arr.length; i++) {
+// 			map.put(arr[i], true);
+// 		}
+// 		int maxStart = -1, maxLen = 0;
+// 		boolean startCheck = true;
+
+// 		for (int i : arr) {
+// 			if (map.get(i)) {
+// 				int currStart = i, currLen = 1;
+// 				boolean flag = true;
+// 				map.put(i, false);
+
+// 				int ahead = i + 1;
+// 				while (flag) {
+// 					if (map.containsKey(ahead)) {
+
+// 						currLen = currLen + 1;
+// 						map.put(ahead, false);
+// 						ahead = ahead + 1;
+				
+// 					} else {
+// 						flag = false;
+// 					}
+// 				}
+// 				flag = true;
+// 				int before = i - 1;
+				
+// 				while (flag) {
+// 					if (map.containsKey(before)) {
+						
+// 						currLen = currLen + 1;
+// 						currStart = before;
+// 						map.put(before, false);
+// 						before = before - 1;
+					
+// 					} else {
+// 						flag = false;
+// 					}
+// 				}
+
+// 				System.out.println();
+// 				if (currLen >= maxLen) {
+// 					maxLen = currLen;
+// 					maxStart = currStart;
+// 					lenMap.put(maxStart, maxLen);
+// 				}
+// 			}
+		
+// 		}
+
+// 		for (int i = 0; i < arr.length; i++) {
+// 			if (lenMap.containsKey(arr[i]) && lenMap.get(arr[i]) >= maxLen) {
+// 				maxStart = arr[i];
+// 				maxLen = lenMap.get(arr[i]);
+// 				break;
+// 			}
+// 		}
+// 		output.add(maxStart);
+// 		output.add(maxStart + maxLen - 1);
+// 		return output;
+// 	}
+// }
+
+
+
+
+
+
+
+
+
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
