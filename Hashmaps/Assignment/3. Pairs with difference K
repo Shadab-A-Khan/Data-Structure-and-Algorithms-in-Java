@@ -30,6 +30,59 @@ Sample Output 2 :
 
 
 import java.util.HashMap;
+
+public class Solution {
+
+    public static int getPairsWithDifferenceK(int[] input, int k) {
+        HashMap<Integer, Integer> ans = new HashMap<>();
+
+        int count = 0;
+        for (int i = 0; i < input.length; i++) {
+            if (ans.containsKey(input[i])) {
+                if (ans.containsKey(k + input[i])) {
+                    count = count + ans.get(k + input[i]);
+
+                }
+                if (ans.containsKey(input[i]- k)) {
+                    count = count + ans.get(input[i] - k);
+                }
+                ans.put(input[i], ans.get(input[i]) + 1);
+
+            } else {
+                if (ans.containsKey(k + input[i])) {
+                    count = count + ans.get(input[i]+k);
+
+                }
+                if (ans.containsKey(input[i] - k)) {
+                    count = count + ans.get(input[i]-k) ;
+                }
+                ans.put(input[i], 1);
+            }
+        }
+      if(k==0){
+           return count/2;
+       }
+        return count;
+
+    }
+}
+
+
+
+
+
+
+
+// _________or
+
+
+
+
+
+
+
+
+import java.util.HashMap;
 public class Solution {
 
 	public static int getPairsWithDifferenceK(int arr[], int k) {
@@ -86,3 +139,6 @@ public class Solution {
         return countPairs;
 	}
 }
+
+
+
