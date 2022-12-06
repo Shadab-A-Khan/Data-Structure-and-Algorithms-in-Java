@@ -94,38 +94,47 @@ Sample Output 2 :
 Explanation for Sample Output 2 :
 Since, both input arrays have two '2's, the intersection of the arrays also have two '2's. The first '2' of first array matches with the first '2' of the second array. Similarly, the second '2' of the first array matches with the second '2' if the second array.
 */
-import java.util.*;
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.HashMap;
+
 public class Solution {
 
-	public static void printIntersection(int[] arr1, int[] arr2) {
-	    //Your code goes here
-        HashMap<Integer, Integer> map = new HashMap<>();
-        
-        for(int key:arr1)
-        {	
-            if(map.containsKey(key))
-        	{
-            	map.put(key,map.get(key)+1);
-        	}
-            else
-            {
-                map.put(key,1);
+    public static void printIntersection(int[] arr1, int[] arr2) {
+        // Your code goes here
+        HashMap<Integer, Integer> ans = new HashMap<>();
+        for (int i = 0; i < arr1.length; i++) {
+            if (ans.containsKey(arr1[i])) {
+                ans.put(arr1[i], ans.get(arr1[i]) + 1);
+            } else {
+                ans.put(arr1[i], 1);
             }
-            
         }
-        Arrays.sort(arr2);
-        for (int key:arr2)
-        {
-            if (map.containsKey(key))
-            {
-                int val = map.get(key);
-                if (val>0)
-                {
-                    System.out.println(key + " ");
-                    map.put(key,val-1);
+        for (int i = 0; i < arr2.length; i++) {
+            if (ans.containsKey(arr2[i])) {
+                if (ans.get(arr2[i]) > 0) {
+                    System.out.println(arr2[i] + " ");
+                    ans.put(arr2[i], ans.get(arr2[i]) - 1);
                 }
-                
             }
-        }   
-	}
+
+        }
+    }
+
 }
+
+
+
+
+
+
