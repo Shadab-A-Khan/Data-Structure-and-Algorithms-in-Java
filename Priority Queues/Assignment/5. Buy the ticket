@@ -47,32 +47,29 @@ import java.util.*;
 public class Solution {
 	
 	public static int buyTicket(int input[], int k) {
-		/* Your class should be named Solution
-		* Don't write main().
-		* Don't read input, it is passed as function argument.
-		* Return output and don't print it.
-		* Taking input and printing output is handled automatically.
-		*/
-          Queue<Integer> q = new LinkedList<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        
-        for(int i=0 ; i<input.length ; i++){
+
+		Queue<Integer> q = new LinkedList<>();
+		PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+		for(int i=0; i<input.length ; i++){
             q.add(i);
-            pq.add(input[i]);
-        }
-        int time =0 ; 
+			pq.add(input[i]);
+		}
+        int time=0;
         while(!q.isEmpty()){
-        if (input[q.peek()] < pq.peek()){
-            q.add(q.poll());
-        }else{
-            int index=q.poll();
-            pq.remove();
-            time++;
-            if(index==k){
-               break;
-             }
-          }     
-	   }
-         return time;
-    }
+			if(input[q.peek()]<pq.peek()){
+                q.add(q.poll());
+			}else{
+				int value=q.poll();
+				pq.remove();
+				time++;
+				if(value==k){
+					break;
+				}
+			}
+		}
+		return time;
+	}
 }
+
+
+
