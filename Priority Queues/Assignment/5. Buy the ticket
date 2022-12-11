@@ -48,12 +48,14 @@ public class Solution {
 	
 	public static int buyTicket(int input[], int k) {
 
-		Queue<Integer> q = new LinkedList<>();
-		PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
-		for(int i=0; i<input.length ; i++){
-            q.add(i);
-			pq.add(input[i]);
-		}
+        Queue<Integer> q = new LinkedList<>();
+	PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+	
+	for(int i=0; i<input.length ; i++){
+              q.add(i);
+	      pq.add(input[i]);
+	}
+	
         int time=0;
         while(!q.isEmpty()){
 			if(input[q.peek()]<pq.peek()){
