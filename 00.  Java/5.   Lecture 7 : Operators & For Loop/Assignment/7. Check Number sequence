@@ -72,49 +72,37 @@ the output for this test case is 'false'
 
 import java.util.Scanner;
 public class Main {
-	
-	public static void main(String[] args) {
-		// Write your code here
 
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        
-        int n1=sc.nextInt();
-        int n2=sc.nextInt();
-        
-        boolean isDec=true;
-        
-        int i=1;
-        while(i<(n-2))
-        {
-            if(n1==n2)
-            {
-                isDec=false;
-                break;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int prev = s.nextInt();
+        int count = 2, current;
+        boolean isDec = true;
+        while(count<=n){
+         current = s.nextInt();
+         count++;
+        //now we start to check the sequence
+        if(current==prev){
+            System.out.println("false"); //if 2 numbers are equal we simply exit the loop
+            return;
+
+        }else if(current<prev){
+            if(isDec==false){
+                System.out.println("false");
+                return;                
+            }
+        }else{
+            if(isDec==true){
+                isDec = false;
             }
             
-            else if(n1<n2)
-            {
-                isDec=true;
-                n1=n2;
-                n2=sc.nextInt();
-                i++;
-                continue;
-            }
-            
-            else if(n1>n2)
-            {
-                isDec=true;
-                n1=n2;
-                n2=sc.nextInt();
-                i++;
-                continue;
-            }
-            
-            //n1=n2;
-            //n2=sc.nextInt();
-           // i++;
         }
-        System.out.println(isDec);
+        prev = current;
+        }
+        System.out.println("true");
+        s.close();
 	}
+
 }
