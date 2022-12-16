@@ -1,0 +1,111 @@
+
+
+public class MinStepToOne_DP {
+
+	public static int MinToOne(int n) {
+		if(n==0) {
+			return 0;
+		}
+
+		else if(n==2 || n==3) {
+			return 1;
+		}
+
+		int minstepOne=Integer.MAX_VALUE;
+		int minStepTwo=Integer.MAX_VALUE;
+		int minStepThree=Integer.MAX_VALUE;
+
+		minstepOne=MinToOne(n-1);
+		if(n%2==0) {
+			minStepTwo=MinToOne(n/2);
+		}
+
+		if(n%3==0) {
+			minStepThree=MinToOne(n/3);
+		}
+
+		return 1+Math.min(minStepThree,Math.min(minstepOne,minStepTwo));
+	}
+
+	
+	
+
+	
+	//Memoization using Recursion
+	public static int MinToOneMemo(int n, int[] storage) {
+		if(n==1) {
+			storage[n]=0;
+			return storage[n];
+		}
+
+		if(storage[n]!=0) {
+			return storage[n];
+		}
+
+		int minStepOne=Integer.MAX_VALUE;
+		int minStepTwo=Integer.MAX_VALUE;
+		int minStepThree=Integer.MAX_VALUE;
+
+		minStepOne=MinToOneMemo(n-1,storage);
+
+		if(n%2==0) {
+			minStepTwo=MinToOneMemo(n/2, storage);
+		}
+
+		if(n%3==0) {
+			minStepThree=MinToOneMemo(n/3, storage);
+		}
+
+		int min=1+Math.min(minStepOne, Math.min(minStepTwo, minStepThree));
+		storage[n]=min;
+		return storage[n];
+	}
+
+
+	//Memoization using Recursion
+	public static int MinToOneMemo(int n) {
+		int[] storage = new int[n+1];
+		return MinToOneMemo(n, storage);
+	}
+	
+	
+	
+	
+	
+	//DP
+	public static int MinToOneDP(int n) {
+		int []storage=new int[n+1];
+		storage[1]=0;
+		for(int i=2; i<=n ; i++) {
+			int min=storage[i-1];
+			if(i%3==0) {
+				if(min>storage[i/3]) {
+					min=storage[i/3];
+				}
+			}
+			
+			if(i%2==0) {
+				if(min>storage[i/2]) {
+					min=storage[i/2];
+				}
+			}
+			storage[i]=1+min;
+		}
+		return storage[n];
+	}
+	
+	
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n=100;
+		System.out.println(MinToOneDP(n));
+		System.out.println(MinToOneMemo(n));
+		System.out.println(MinToOne(n));
+
+	}
+
+}
+
+
