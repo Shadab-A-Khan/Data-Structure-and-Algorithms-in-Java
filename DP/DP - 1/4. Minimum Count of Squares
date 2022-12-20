@@ -35,6 +35,144 @@ Sample Output 2 :
 
 
 
+// 1): 
+ // Normal recursion Method
+
+public class Solution {
+    static int minStep;
+	public static int minCount(int n) {
+		//Your code goes here
+		if(n<0){
+			return -1;
+		}
+
+        if (n >= 0 && n <= 3) {
+          return n;
+        }
+
+		if((n/2)*(n/2)==n){
+			return 1;
+		}
+
+
+         minStep=n;
+		for(int i=1; i<=n/2 ; i++){
+			if(i*i<=n){
+               int count=1+minCount(n-i);
+			   if(count<minStep){
+				   minStep=count;
+			   }
+			}
+		}
+		return 1+minStep;
+	}
+}
+
+
+
+
+
+
+
+
+//__________________________________________________
+
+ // 2)
+ // Memoization
+
+
+public class Solution {
+    static int minStep;
+	public static int minCount(int n) {
+		//Your code goes here
+		int [] storage=new int[n+1];
+
+		if(n<0){
+			return -1;
+		}
+
+        if (n >= 0 && n <= 3) {
+          return n;
+        }
+
+		if((n/2)*(n/2)==n){
+			return 1;
+		}
+
+		if(storage[n]!=0){
+			return storage[n];
+		}
+
+
+         minStep=n;
+		for(int i=1; i<=n/2 ; i++){
+			if(i*i<=n){
+               int count=1+minCount(n-i);
+			   if(count<minStep){
+				   minStep=count;
+			   }
+			}
+		}
+		storage[n] = 1+minStep;
+		return storage[n];
+	}
+}
+
+
+
+
+
+
+
+
+//__________________________________________________
+
+//  3)
+//  DP , with recursion
+
+public class Solution {
+	public static int minCount(int n,int[] storage) {
+       if(n==0){
+          return 0;
+	   }
+	   int minStep=Integer.MAX_VALUE;
+       for(int i=1; i*i<=n ; i++){
+		   int currentAns;
+            if(storage[n-(i*i)]==-1){
+			    currentAns=minCount(n-(i*i),storage);
+				storage[n-(i*i)]=currentAns;
+			}else{
+				currentAns=storage[n-(i*i)];
+			}
+
+			if(currentAns<minStep){
+                minStep=currentAns;
+			}
+	   }
+	   int myAns=1+minStep;
+	   return myAns;
+
+	}
+
+
+	public static int minCount(int n) {
+	  int[] storage=new int[n+1];
+	  for(int i=0; i<storage.length ; i++){
+		  storage[i]=-1;
+	  }
+	  return minCount(n, storage);
+	}
+}
+
+
+
+
+
+
+ //__________________________________________________
+
+//  4)
+//  DP , Without recursion
 
 public class Solution {
 
@@ -75,3 +213,39 @@ public class Solution {
 	}
 
 }
+
+
+
+ 5) //simpler then 4
+ DP , Without recursion
+
+public class Solution {
+
+	public static int minCount(int n) {
+
+		int[] storage=new int[n+1];
+		storage[0]=0;
+		storage[1]=1;
+
+		for(int i=2; i<=n ; i++){
+			storage[i]=Integer.MAX_VALUE;
+			for(int j=1; j*j<=i ; j++){
+				storage[i]=Math.min(storage[i],storage[i-(j*j)]);
+			}
+			storage[i]+=1;
+		}
+		return storage[n];
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
