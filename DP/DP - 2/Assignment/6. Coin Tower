@@ -25,34 +25,29 @@ Beerus
 public class Solution {
 
 	public static String findWinner(int n, int x, int y) {
-		//Your code goes here
-        
-        int[] storage = new int[n+1];
-        String s1="Whis";
-        String s2="Beerus";
-        
-        
-        storage[0]=0;
-        storage[1]=1;
-        
-        for(int i =2 ; i<=n ; i++){
-            if(i-1>=0 && storage[i-1]==0){
-                storage[i] = 1;
-            }
-            else if(i-x>=0 && storage[i-x]==0){
-                storage[i] = 1;
-            }
-            else if(i-y>=0 && storage[i-y]==0){
-                storage[i] = 1;
-            }else{
-               storage[i] = 0;
-            }
-        }
-        
-         if(storage[n]==0)
-            return s1;
-        else
-            return s2;
+
+		boolean[] Storage = new boolean[n + 1];
+
+		Storage[0]=false; //no coin to pic so no chance of A , false
+		Storage[1]=true; // one coint A can pic and win , so True
+
+		for(int i=2; i<=n ; i++){
+			if(i-1>=0 && Storage[i-1]==false){
+				Storage[i] = true;
+			}else if(i-x>=0 && Storage[i-x]==false){
+				Storage[i] = true;		
+			}else if(i-y>=0 && Storage[i-y]==false){
+				Storage[i] = true;
+			}else{
+				Storage[i]=false;
+			}
+		}
+
+		if(Storage[n]==false){
+			return "Whis";
+		}else{
+			return "Beerus";
+		}
+
 	}
-	
 }
