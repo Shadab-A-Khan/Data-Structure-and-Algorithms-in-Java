@@ -75,27 +75,25 @@ Looting first, third, and the last houses([10 + 30 + 50]) will result in the max
 
 
 import java.util.*;
-
 public class Solution {
-	public static int maxMoneyLooted(int arr[]){
-        if(arr.length == 0)
-            return 0;
-        
-        if(arr.length == 1)
-            return arr[0];
-        int ans[]=new int[arr.length];
-        
-        ans[0]=arr[0];
-        ans[1] = Math.max(arr[0], arr[1]);
-        
-        int n = arr.length;
-    	for(int i=2; i<n; i++){
-            int temp1 = arr[i] + ans[i-2];
-            ans[i] = Math.max(temp1, ans[i-1]);
-        }
-        
-        return ans[n-1];
-    }
+	public static int maxMoneyLooted(int house[]) {
+		int n = house.length;
+		if (n == 0){
+			return 0;		
+		}
+		if (n == 1){
+			return house[0];
+		}
+		int ans[] = new int[n];
+		ans[0] = house[0];
+		ans[1] = Math.max(house[0], house[1]);
+		
+		for (int i = 2; i < n; i++) {
+			int temp1 = house[i] + ans[i - 2];
+			ans[i] = Math.max(temp1, ans[i - 1]);
+		}
+		return ans[n - 1];
+	}
 }
 
 
