@@ -49,76 +49,108 @@ Sample Output 3 :
 
 
 
-//Normal Recursion
+// 1) Using normal Recursion approach
+
+import java.util.*;
 public class Solution {
-      
-    public static int minCostPath(int[][] input , int i , int j){
-        int m = input.length;
-        int n = input[0].length;
-        
-        if(i==m-1 && j==n-1){
-            return input[i][j];
-        }
-        
-        if(i>=m || j>=n){
-            return Integer.MAX_VALUE;
-        }
-        
-        int opt1 = minCostPath(input , i ,  j+1);
-        int opt2 = minCostPath(input , i+1 , j+1);
-        int opt3 = minCostPath(input , i+1 , j);
-        
-        return input[i][j]+Math.min(opt1 , Math.min(opt2 ,opt3));
-    }
 
 	public static int minCostPath(int[][] input) {
 		//Your code goes here
-        return minCostPath(input, 0, 0);
+        return minCostPath(input,0,0);
+
+	}
+
+	public static int minCostPath(int[][] input,int i, int j) {
+		int m = input.length;
+		int n = input[0].length;
+
+		if(i >= m || j >= n){
+			return Integer.MAX_VALUE;
+		}
+
+        if(i==m-1 && j==n-1){
+             return input[i][j];
+		}
+
+		int temp = input[i][j]+Math.min(minCostPath(input,i,j+1),Math.min(minCostPath(input,i+1,j),minCostPath(input,i+1,j+1)));
+		return temp;
+
 	}
 }
 
 
 
 
+// 2) Memoization
 
-// }//Meomoization
 public class Solution {
 
-	public static int minCostPath(int arr[][]){
-		int m = arr.length;
-		int n = arr[0].length;
+    public static int minCostPath(int arr[][], int i, int j, int[][] storage) {
+        int m = arr.length;
+        int n = arr[0].length;
+
+        if (i >= m || j >= n) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (i == m - 1 && j == n - 1) {
+            storage[m - 1][n - 1] = arr[i][j];
+            return storage[i][j];
+        }
+
+        if (storage[i][j] != -1) {
+            return storage[i][j];
+        }
+
+        int opt1 = minCostPath(arr, i, j + 1, storage);
+        int opt2 = minCostPath(arr, i + 1, j + 1, storage);
+        int opt3 = minCostPath(arr, i + 1, j, storage);
+
+        storage[i][j] = arr[i][j] + Math.min(opt1, Math.min(opt2, opt3));
+        return storage[i][j];
+    }
+
+    public static int minCostPath(int arr[][]) {
+        int n = arr.length;
+        int m = arr[0].length;
+        int storage[][] = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                storage[i][j] = -1;
+            }
+        }
+
+        return minCostPath(arr, 0, 0, storage);
+    }
+
+}
+
+
+// 3) DP
+
+public class Solution {
+
+	public static int minCostPath(int[][] input) {
+		int m = input.length;
+		int n = input[0].length;
 		int storage[][] = new int[m][n];
-		for(int i = 0; i < m ; i++){
-			for(int j = 0; j < n; j++){
-				storage[i][j] = -1;
-			}
-		}
-		return minCostPath(arr, 0, 0, storage);
+
+		 storage[m-1][n-1]=input[m-1][n-1];
+		 for(int j=n-2 ; j>=0 ; j--){
+              storage[m-1][j]=input[m-1][j]+storage[m-1][j+1];
+		 }
+
+		 for(int i=m-2 ; i>=0 ; i--){
+			 storage[i][n-1]=input[i][n-1]+storage[i+1][n-1];
+		 }
+
+		 for(int i=m-2 ; i>=0 ; i--){
+			 for(int j=n-2 ; j>=0 ; j--){
+				 storage[i][j]=input[i][j]+Math.min(storage[i+1][j], Math.min(storage[i+1][j+1], storage[i][j+1]));
+			 }
+		 }
+
+		 return storage[0][0];
+
 	}
-
-	private static int minCostPath(int[][] arr, int i, int j, int[][] storage) {
-		int m = arr.length;
-		int n = arr[0].length;
-
-		if(i >= m || j >= n){
-			return Integer.MAX_VALUE;
-		}
-
-		if(i == m - 1 && j == n - 1){
-			storage[m - 1][n - 1] = arr[i][j];
-			return storage[i][j];
-		}
-
-		if(storage[i][j] != -1){
-			return storage[i][j];
-		}
-
-		int op1 = minCostPath(arr, i , j + 1, storage);
-		int op2 = minCostPath(arr, i + 1 , j + 1, storage);
-		int op3 = minCostPath(arr, i + 1, j, storage );
-		storage[i][j] = arr[i][j] + Math.min(op1,  Math.min(op2, op3));
-		return storage[i][j];
-        
-	}
-    
 }
