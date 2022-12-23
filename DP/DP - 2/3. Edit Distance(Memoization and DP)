@@ -43,49 +43,112 @@ Sample Output 2 :
 
 
 
+// 1) Memoization
+
+
 public class Solution {
+
+		public static int editDistance(String s, String t, int[][] storage) {
+              int m=s.length();
+			  int n=t.length();
+
+			  if(m==0){
+				  storage[m][n]=n;
+				  return storage[m][n];
+			  }
+
+			  if(n==0){
+				  storage[m][n]=m;
+				  return storage[m][n];
+			  }
+
+			  if(storage[m][n]!=-1){
+				  return storage[m][n];
+			  }
+
+			  if(s.charAt(0)==t.charAt(0)){
+				  storage[m][n] =editDistance(s.substring(1),t.substring(1),storage);       
+				  return storage[m][n];           
+			  }else{
+			      int addition = editDistance(s, t.substring(1), storage);
+				  int delition = editDistance(s.substring(1), t, storage);
+				  int substitution = editDistance(s.substring(1),t.substring(1), storage);
+				  storage[m][n] = 1 + Math.min(addition, Math.min(delition, substitution));
+				  return storage[m][n];
+			  }			  
+		  
+		}
+
+	    public static int editDistance(String s, String t) { 
+
+	  	    int m = s.length();
+		    int n = t.length();
+		    int storage[][] = new int[ m + 1][n + 1];
+		    for(int i = 0; i <= m; i++){
+			     for(int j = 0; j <= n; j++){
+				      storage[i][j] = -1;
+			     }
+		    }
+		    return editDistance(s,t,storage);
+			
+        }
+
+ }
+
+
+
+___________________________________________________________________________________________________________________________________
+
+
+
+ // 1) DP
  
 
-	private static int editDistance(String s, String t, int[][] storage) {
+public class Solution {
+
+	public static int editDistance(String s, String t) {
+
 		int m = s.length();
 		int n = t.length();
-		if(storage[m][n] != -1){
-			return storage[m][n];
-		}
-		
-		if(m == 0){
-			storage[m][n] = n;
-			return storage[m][n];
-		}
-		if(n == 0){
-			storage[m][n] = m;
-			return storage[m][n];
-		}
-		if(s.charAt(0) == t.charAt(0)){
-			storage[m][n] =editDistance(s.substring(1), t.substring(1), storage);
-		}else{
-			// insert
-			int op1 =editDistance(s, t.substring(1), storage);
-			// delete 
-			int op2 = editDistance(s.substring(1), t, storage);
-			//substitute
-			int op3 = editDistance(s.substring(1), t.substring(1), storage);
-			storage[m][n] = 1 + Math.min(op1, Math.min(op2, op3));
-		}
-		return storage[m][n];
-	 }
-    
-    
-     public static int editDistance(String s, String t){
-		int m = s.length();
-		int n = t.length();
-		int storage[][] = new int[ m + 1][n + 1];
-		for(int i = 0; i <= m; i++){
-			for(int j = 0; j <= n; j++){
+		int storage[][] = new int[m + 1][n + 1];
+		for (int i = 0; i <= m; i++) {
+			for (int j = 0; j <= n; j++) {
 				storage[i][j] = -1;
 			}
 		}
-		return editDistance(s,t,storage);
+		for(int i=0; i<=m ; i++){
+			storage[i][0]=i;
+		}
+
+		for(int j=0; j<=n ; j++){
+			storage[0][j]=j;
+		}
+
+		for(int i=1; i<=m ; i++){
+			for(int j=1; j<=n ; j++){
+				if(s.charAt(m-i)==t.charAt(n-j)){
+                     storage[i][j]=storage[i-1][j-1];
+				}else{
+				    int opt1=storage[i][j-1];
+				    int opt2=storage[i-1][j];
+				    int opt3=storage[i-1][j-1];
+				    storage[i][j]=1+Math.min(opt1, Math.min(opt2,opt3));
+				}
+
+			}
+		}
+
+		return storage[m][n];
+
 	}
-	
-  }
+
+}
+
+
+
+
+
+______________________________________________________________________________________________________
+
+
+
