@@ -64,7 +64,7 @@ import java.util.Scanner;
  	  }
       
       
-  private static void Kruskals(Edge[] , int v) {
+  public static void Kruskals(Edge[] input, int v) {
 		  Arrays.sort(input);
 		
 		  Edge output[] = new Edge[v-1];
@@ -104,4 +104,3 @@ import java.util.Scanner;
 	}
 
 }
-
