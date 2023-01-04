@@ -31,27 +31,32 @@ Sample Output 1:
 
 public class Solution {
 
-	public static int numConnected(int[][] edges, int n) {    
-  
- int count =0;
-	   boolean[] visited = new boolean[n];
-		
-		for(int i=0;i<n;i++) {
+
+	public static void island(int[][] edges, int v, boolean []visited){
+		int n=edges.length;
+                visited[v]=true;
+		for(int i=0; i<n ; i++){
+			if(edges[v][i]==1 && !visited[i]){
+                           island(edges,i,visited);
+			}		  
+		}	  
+	}
+
+	public static int numConnected(int[][] edges, int n) {
+        
+               int count=0;
+	       boolean[] visited= new boolean[n];
+	       for(int i=0; i<n ; i++){
 			if(!visited[i]){
-                island(edges,i,visited,n);
-                    count++;
-            }
-			
-		}
-		return count;
+                            island(edges, i, visited);
+			    count++;
+			}			
+	       }
+	       return count;
+	}
+	
 	
 }
-private static void island(int[][] edges,int v,boolean[] visited,int n){
-    visited[v]=true;
-    for(int i =0 ;i<n;i++){
-        if(visited[i]==false && edges[v][i]==1){
-            island(edges,i,visited,n);
-        }
-    }
-} 
-}
+
+
+
