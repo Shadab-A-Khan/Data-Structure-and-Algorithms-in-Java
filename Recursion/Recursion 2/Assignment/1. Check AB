@@ -46,11 +46,28 @@ public class Solution {
 
 
 
+1- if length of the sting is 0 then true , 
+this will be the terminating point 
+,like the base case
 
+2- we will add a check for 
+point: a 
+in the question that is ,
+the  0th character should ,must be an a
 
+so we will add a check for it, 
+if the 0th char is not a return false from there
 
+3- then we will check the point b that is                                    
+. Each 'a' is followed by nothing or an 'a' or "bb"                            
+so if the first three character is "abb"
+then we will call recursion from the substring 3                                         
 
+else                                                      
 
+4- we will call the recursion from the substrigng 1 only
+
+follow thest 4 steps
 
 
 
