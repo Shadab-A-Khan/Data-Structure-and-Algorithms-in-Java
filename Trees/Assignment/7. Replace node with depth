@@ -42,7 +42,7 @@ public class Solution {
             return;
         }
             root.data=depth;
-            for(int i=0  i<root.children.size() ; i++){
+            for(int i=0 ; i<root.children.size() ; i++){
                 replaceWithDepth(root.children.get(i), depth+1);
             }
             
