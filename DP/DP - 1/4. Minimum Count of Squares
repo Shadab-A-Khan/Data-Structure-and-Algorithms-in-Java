@@ -38,26 +38,26 @@ Sample Output 2 :
 //** Recursion
 
 public class Solution {
-	public static int minCount(int n) {
-		if(n==0 || n==1){
+  public static int minCount(int n) {
+	if(n==0 || n==1){
             return n;
         }
         int ans=Integer.MAX_VALUE;
         for(int i=1; i*i<=n ; i++){
             int tempCount=minCount(n-(i*i));
             if(ans>tempCount){
-				ans=tempCount;
-			}
+		ans=tempCount;
+	    }
         }
         return 1+ans;
-	}
+   }
 
 }
 
 
 
-
-//** Memoizaton____________________________
+_________________________________________________
+//** Memoizaton
 
 import java.util.*;
 public class Solution {
