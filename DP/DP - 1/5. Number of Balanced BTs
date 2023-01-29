@@ -23,84 +23,69 @@ Sample Output 2:
 
 
 
-
 /*
     Time complexity: O(2^N)
     Space complexity: O(N)
 
     where N is the final height of the binary tree
 */
-
+// //**Recursion ** //
 public class Solution {
-    
-	static int  mod= (int)Math.pow(10,9)+7;
-    
-	public static long balancedBTs(long n){
+	static int mod = (int) Math.pow(10, 9) + 7;
+ 	public static long balancedBTs(long n){
 
-		if(n==0 || n==1) {
-            return 1;
-        }
-			
-		
-		long x = balancedBTs(n-1);
-		long y = balancedBTs(n-2);
-		return ((x*x)%mod + (2*x*y)%mod)% mod;
-        
+		if(n==0 || n==1){
+			return 1;
+		}
+
+		long left = balancedBTs(n - 1);
+		long right = balancedBTs(n - 2);
+		long temp1=(left*left)%mod;
+		long temp2=2*(left*right)%mod;
+
+		long ans = (temp1 + temp2) % mod;
+		return ans;
+
 	}
-
 }
 
 
 
 
+//__________________OR_________________________
 
 
 
 
+// //**Memoization ** //
 
-                    //OR
+import java.util.*;
+public class Solution {
+	static int mod = (int) Math.pow(10, 9) + 7;
+	public static long balancedBTs(int n, long[] storage) {
 
+		if (n == 0 || n == 1) {
+			return 1;
+		}
+		if(storage[n]!=-1){
+			return storage[n];
+		}
 
+		long left = balancedBTs(n - 1,storage);
+		long right = balancedBTs(n - 2,storage);
+		long temp1 = (left * left) % mod;
+		long temp2 = 2 * (left * right) % mod;
 
+		storage[n] = (temp1 + temp2) % mod;
+		return storage[n];
 
+	}
+ 	public static long balancedBTs(long n){
+        int length=(int)n;
+		long[] storage=new long[length+1];
+		Arrays.fill(storage,(long)(-1));
+	    return balancedBTs(length, storage);
 
-/*
-    Time complexity: O(2^N)
-    Space complexity: O(N)
+	}
+}
 
-    where N is the final height of the binary tree
-*/
-
-// public class Solution {
-
-// 	public static long balancedBTs(long n){
-
-//         if(n < 2){
-//             return 1;
-//         }
-        
-//         long x = balancedBTs(n-1);
-//         long y = balancedBTs(n-2);
-//         long mod = 1000000007;
-//         long count = (x*x)%mod;
-//         count = (count + (2*x*y)%mod)%mod;
-// 		return count;
-// 	}
-	
-// 	public static int balancedBTsDP(int height){
-
-// 	    long mod = 1000000007;
-
-// 	    long[] height_p = new long[height+1];
-	    
-// 	    height_p[0] = height_p[1] = 1;
-	    
-// 	    for(int i = 2;i <= height; i++){
-// 			height_p[i] = (height_p[i-1] * height_p[i-1])%mod;
-// 	        height_p[i] = (height_p[i] + (2*height_p[i-1]*height_p[i-2])%mod)%mod;
-// 	    }
-
-// 	    return (int)height_p[height];
-	    
-// 		}
-// 	}
