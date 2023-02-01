@@ -135,7 +135,7 @@ public class Solution {
 		for(int i=1; i<=m ; i++){
 			for(int j=1; j<=n ; j++){
 				if(s.charAt(m-i)==t.charAt(n-j)){
-                   storage[i][j]=1+storage[i-1][j-1];
+                                        storage[i][j]=1+storage[i-1][j-1];
 				}else{
 					int opt1 = storage[i-1][j];
 					int opt2 = storage[i][j-1];
