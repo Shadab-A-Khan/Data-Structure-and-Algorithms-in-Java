@@ -101,6 +101,65 @@ public class Solution {
 }
 }
 
+
+
+see you have been to add the even values of the node at the end off odd
+
+like if you have
+
+1 4 5 2
+
+so the odd once are 1 and 5
+
+and the even values are
+
+2 and 4
+
+so 
+
+we have to add the odd first and even at the end 
+
+like this
+
+1 5 4 2 
+
+so now
+
+how to sove it
+
+see , create  a new linkedlist
+
+that we will return at the end
+
+infact create two linked list
+
+one that will store all the odd values
+
+and another that will store all the even values
+
+so
+
+now
+
+we will  itterage over the given linkedlist
+
+and if the value of that node is even we will add it to even node that we have created
+
+else to the odd onve
+
+one*
+
+and finally with the tail of odd we will conncet the head of the even
+
+and we will return the head of the odd
+
+that is it
+
+
+
+
+
+
 // public class Solution {
 
 // 	public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
