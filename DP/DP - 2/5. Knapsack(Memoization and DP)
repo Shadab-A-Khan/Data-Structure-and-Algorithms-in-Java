@@ -49,3 +49,99 @@ public class Solution{
         return dp[(n+1) % 2][maxWeight];
     }
 }
+
+
+
+
+
+
+// 1) Recursion
+
+public class Solution {
+
+	public static int knapsack(int[] weights,int wSi,  int[] values,int valSi ,int n, int maxWeight) {
+		if(n==0){
+			return 0;
+		}
+
+		// if(wSi>weights.length || valSi>values.length){
+		// 	return -1;
+		// }
+        int maxValue=0;
+		if(weights[wSi]>maxWeight){
+			maxValue=knapsack(weights,wSi+1,values,valSi+1 ,n-1,maxWeight);
+		}else{
+		   int opt1 =knapsack(weights, wSi + 1, values, valSi + 1, n - 1, maxWeight);
+           int opt2 =values[valSi]+knapsack(weights,  wSi+1, values, valSi+1, n-1, maxWeight-(weights[wSi]));
+		   maxValue=Math.max(opt1, opt2);
+		}
+
+		return maxValue;			
+
+	}
+
+	public static int knapsack(int[] weights, int[] values, int n, int maxWeight) {
+		//Your code goes here
+         return knapsack(weights, 0, values, 0, n, maxWeight);
+	}
+
+}
+
+
+
+// // 2) Memoization
+
+// public class Solution {
+
+// 	public static int knapsack(int[] weights, int wSi, int[] values, int valSi, int n, int maxWeight, int[][] storage) {
+// 		int m1=weights.length;
+// 		int n1=values.length;
+// 		if (n == 0) {
+// 			return 0;
+// 		}
+
+// 		if (wSi > weights.length || valSi > values.length) {
+// 			return -1;
+// 		}
+
+// 		if(storage[wSi][valSi]!=-1){
+// 			return storage[wSi][valSi];
+// 		}
+// 		// int maxValue = 0;
+// 		if (weights[wSi] > maxWeight) {
+// 			return knapsack(weights, wSi + 1, values, valSi + 1, n - 1, maxWeight, storage);
+// 		} else {
+// 			int opt1 = knapsack(weights, wSi + 1, values, valSi + 1, n - 1, maxWeight, storage);
+// 			int opt2 = values[valSi] + knapsack(weights, wSi + 1, values, valSi + 1, n - 1, maxWeight - (weights[wSi]), storage);
+// 			storage[m1][n1] = Math.max(opt1, opt2);
+// 		}
+
+// 		return storage[m1][n1];
+ 
+// 	}
+
+// 	public static int knapsack(int[] weights, int[] values, int n, int maxWeight) {
+// 		// Your code goes here
+// 		int storage[][]=new int[weights.length+1][values.length+1];
+// 		for(int i=0; i<=weights.length ; i++){
+// 			for(int j=0; j<=values.length ; j++){
+// 				storage[i][j]=-1;
+// 			}
+// 		}
+// 		return knapsack(weights, 0, values, 0, n, maxWeight,storage);
+// 	}
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
