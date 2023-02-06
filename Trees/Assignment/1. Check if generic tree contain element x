@@ -57,3 +57,28 @@ public class Solution {
 	}
 	
 }
+
+
+
+
+
+ya to solve this problem
+
+you can first andd a check if root is null return false from there 
+
+it would be the base case
+
+then you can check on root , valuye is it x 
+
+if yes
+
+return true
+
+from there only
+
+else , if root is not null and it is not equal to x
+
+
+
+
+you need to use a loop because it is  a greneric tree that will help you itterate over all the child of the tree and call the recrursion on each child
