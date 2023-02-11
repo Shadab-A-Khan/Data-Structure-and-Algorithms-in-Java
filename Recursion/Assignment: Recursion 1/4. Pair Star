@@ -36,3 +36,72 @@ public class solution {
         return s.charAt(0)+addStars(s.substring(1));
 	}
 }
+
+
+
+
+since we are doing it recursively
+
+what should be the bse case
+
+see if length is 1 or smaller
+
+there we cannot add any * right
+
+
+
+so
+
+here we get the base case
+
+if the lenght of the given string itsefl is smaller then or equals to 1 return the string
+
+ok
+
+?
+
+now
+
+we will check
+
+its sure now if the length is not smaller then or equal to 1 so its min two right
+
+
+
+so
+
+we will check if the first and second character that is 0th and 1st are same
+
+we will add 0th char along with an star and contacinate it with the result of
+
+recurison from substring 1
+
+like
+
+if the string is
+
+aaa
+
+so
+
+first and second char is same
+
+so
+
+a*addStars(aa)
+
+else if both are not same
+
+we wont add the * to it
+
+just add the first char 
+
+and then call the recurion next to it
+
+
+
+
+
+
+
+
