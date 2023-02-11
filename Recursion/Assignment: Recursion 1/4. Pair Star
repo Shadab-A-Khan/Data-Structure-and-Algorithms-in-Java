@@ -102,6 +102,25 @@ and then call the recurion next to it
 
 
 
-
+	if(length of the string is < 1){
+		return the sring
+	}
+	
+    if (the first and second chatacter are same){
+			return the first chaacter added an 
+			star * and the recursion call 
+			with substring 1 like
+			a* + addStars(aa)
+		}else{
+			just reutrn the first char + the result from 
+			the recursion call on second string
+			like if sting is abbcd
+			a+addStars(bbcd)
+		}
+		
+		
+		
+		
+		
 
 
