@@ -118,4 +118,10 @@ the root1 and root2
 like
 
 !checkIdentical(root1.children.get(i) , 
-                         root2.children.get(i)
+                 root2.children.get(i)
+		 
+		 
+		 
+		 
+		 
+		 
