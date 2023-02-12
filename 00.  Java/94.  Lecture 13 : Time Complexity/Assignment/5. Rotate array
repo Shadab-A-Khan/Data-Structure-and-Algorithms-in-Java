@@ -64,3 +64,109 @@ public class Solution {
     }
 
 }
+
+
+
+
+
+
+see,
+
+
+we dont need to create any
+new array , we dont need to 
+print it we just need to update it
+we have been given
+
+two argumnet
+
+arr and d
+
+in the arr aray
+
+we need to shift the first d element to the end
+
+like
+
+if the array is
+
+1 2 3 4 5
+
+and 
+
+d=2
+
+so
+
+the first two elment that is
+
+1 2
+
+need to be shifted to the end fot the array
+
+like
+
+3 4 5 1 2
+
+so 
+
+we need to do three task
+
+____first step ___
+
+
+we need to copy the fist d element somewhere so when we shift 
+the element after d in the arraya arr to the begiing
+i we dont loose it 
+
+so
+
+we will creat a d length array
+
+and we will copy the first d element to that array
+
+_______now the second step_____
+
+we will shiftet the first d element to the befining
+
+like
+
+- - - 3 4 5 
+
+to
+
+3 4 5 - -
+
+_________ the third step___________
+
+that is
+
+we will agagin put  the first d element from the d sized
+array that we had created to the same array
+
+like
+
+temp is
+
+
+
+1 2
+
+and
+
+3 4 5 - -
+
+to
+
+3 4 5 1 2
+
+
+that is all we need to do
+
+
+if any doubt please ask
+
+
+
+
+
