@@ -66,3 +66,56 @@ public class Solution {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+se we have been asked to check if'
+both the tree are identical or not 
+
+
+so as base case if both are null 
+return true from there 
+
+ok?
+
+
+now what are the situation in
+which it wont be structurely 
+identical
+
+1) if root1 is null and root2 is not
+or root1 is not null but root 2 is 
+
+right ?
+
+2)the number of children of root1
+and root2 are nopt same then it also
+wont be structurely identical
+
+so in these two situation we need to 
+reutrn false
+
+else we will just use a loop 
+and call recurion on the all the childs of 
+the root1 and root2
+
+like
+
+!checkIdentical(root1.children.get(i) , 
+                         root2.children.get(i)
