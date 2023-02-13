@@ -37,7 +37,6 @@ Sample Input 2 :
 3 4
 0 3
 Sample Output 2 :
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Queue;
@@ -52,10 +51,10 @@ public class Solution {
 		map.put(v1,-1);
 		q.add(v1);
 		while(!q.isEmpty()){
-		    int parent=q.remove();
-		    visited[parent]=true;
-		    for(int i=0; i<edges.length; i++){
-		 		if(edges[parent][i]==1 && !visited[i]){
+			int parent=q.remove();
+			visited[parent]=true;
+		        for(int i=0; i<edges.length; i++){
+				if(edges[parent][i]==1 && !visited[i]){
                                    map.put(i,parent);
 				   visited[i]=true;
 				   q.add(i);
@@ -75,8 +74,8 @@ public class Solution {
 			}
 		}
 	}
-	public static void main(String[] args)  throws NumberFormatException, IOException{
-	   Scanner sc=new Scanner(System.in);
+     public static void main(String[] args)  throws NumberFormatException, IOException{
+       Scanner sc=new Scanner(System.in);
        int v=sc.nextInt();
 	   int e=sc.nextInt();
 	   int [][]edges=new int[v][v];
@@ -94,3 +93,9 @@ public class Solution {
 	   GetPathBFS(edges,visited,map,v1,v2);
 	}
 }
+
+
+
+
+
+
