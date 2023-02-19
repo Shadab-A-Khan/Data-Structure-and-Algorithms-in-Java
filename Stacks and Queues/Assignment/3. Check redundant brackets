@@ -67,3 +67,88 @@ public class Solution {
         return false;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+see check the redundcy ,
+we need to check for parenthesis that 
+has of no use
+like
+
+()
+
+or
+
+((a+b))-> in this expample the outer 
+bracket that is unecessary we are 
+not doing anything there
+
+so if the bracket is reduntent
+in this case and we will return true 
+for in
+
+
+so how to approach the problme
+
+
+now, first i will suggest you to watch the 
+hint video
+
+now , we need four of the checks 
+but before that we will create a stack
+
+see if there is any operation perfroming
+in between the bracket it means it is
+not reduntent right
+
+
+so , now the expression String
+should be somthing like 
+
+
+a+(b)+c  this right
+
+
+
+now will use a loop that will help us to 
+itterate over the whole expression
+
+now comes the four checks
+
+1)
+we will check if the char at 
+some index is +, -, / or *
+we will simply push it into the stack
+
+2) if there is some opening braket 
+we will push it into the stack as 
+well
+
+now comes the clolign bracket
+3) see if there is any closing bracket
+    we will check the peek of the stack 
+	if there is ) opening braket there 
+
+	means there is nothing in between
+	closing ) and opening (
+		hence true its reduntent
+
+4) else we will pop all and continue movieing 
+forward in theexpression
+
+
+
+
+
+
+
+
+
+
