@@ -44,3 +44,71 @@ public class solution {
        return binarySearch(input,element,0,input.length-1) ;
     }
 }
+
+
+
+
+
+see , when you will read the Question you will et to see we have been given the array in that is already sorted in ascending order that is smaller to larger
+
+so this is clear that the smallest will ne at the begining
+
+and the lragest will be at its end
+
+right
+
+??
+
+so binary searh means to search it from both the side
+
+it clear from the name itself i gues  bi
+
+so
+
+now we have been given a value x that we need to find
+
+so as well no, the lagest value of the array will be at the end 
+
+and the smallest will be at the begining
+
+and the mid value will be at the mid index
+
+so to optimize searching
+
+we will find the mid index
+
+and comapre the value of mid index and x 
+
+if x is grater then the mid then our start will be mid+1
+
+if x is smaller then the mid index value
+
+the the end will be mid-1
+
+this will otpimize our seahcing and we will not need to seach on all the index
+
+if both the cases false means the value at mid is equal to the x
+
+so we will return that index
+
+so to solve the problme
+
+we need an helper funcion , since we require two value in each recursion call that is star index si and end index that can be named as ei as well
+
+and we will do what i expalined earlier there
+
+and finally we will return that index
+
+if any dobt please ask
+
+
+
+
+
+
+
+
+
+
+
+
