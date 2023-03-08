@@ -68,3 +68,33 @@ public class Solution {
 	}
 	
 }
+
+
+
+
+see to find the mirror image we need to update the 
+root's left node with root's right node
+
+but to do that we need to do that from bottom to 
+if we swap the address of root'left and root's right
+from top to bottom it wont give the desired result
+you can check by doing a dry run on paper
+
+so now we need to do this bottom up
+
+so what we will do 
+
+ the first step should be a check 
+
+
+ first we will check if root itslef is null then 
+no need to do anything
+
+result from there only
+
+
+now we will call recursion on root's left and root's right
+
+and when we reach a point were there is no child of that node,
+
+then simaly we will swap the vlue of the nodes 
