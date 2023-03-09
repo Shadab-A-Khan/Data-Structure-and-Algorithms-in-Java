@@ -103,3 +103,51 @@ public class Solution {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+since we have been asked to do this in dp
+
+first we will set some edges case like
+
+like if 
+
+we have n<=1 then we just need one step
+only to climb 
+
+like if n==2 then it willt ake 2 step only
+
+
+now as we are doing it in dp 
+
+we will create the dp array that will store the vaule
+
+so it should be on n+1 size 
+
+now we will provide some intial value to the dp array
+like
+we will give the oth index 0 value , first index 1 value and
+seocnd index 2 
+
+
+now we will use a loop , from the index 3 and itterate til need
+
+and we will fill each index with the sum of prev 
+three index
+
+and at the end 
+
+we will reurn the vlaue at nth index
+
+
+
+
+
