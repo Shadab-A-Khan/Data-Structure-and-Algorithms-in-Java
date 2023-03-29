@@ -75,3 +75,57 @@ public class Solution {
 // 	}
 
 // }
+
+
+
+Hello!
+
+
+see ,
+
+see to sovle this problme , 
+
+
+one have been given n terms
+
+and the range is from 0 to n-2
+
+
+so like  , if there is 7 elements 
+the values will be 0 to 6 
+
+and it is given that each number is prestnt 
+at least once , 
+
+so, to find the duplicate what we can do is
+
+find the sum of N natural number 
+
+that will give the sum of all the unique 
+values
+
+
+and then we will sum all the values in the
+array , that will include the duplicate ,
+
+
+so finally subtracting
+
+
+sumOfNnaturalNuber - sumOfArray
+
+it will give us the duplicate values
+
+to find the sum of n natual nuber we can use
+the fomula
+
+n*(n+1)/2
+
+
+
+
+if any doubt please ask
+
+
+
+
