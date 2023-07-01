@@ -41,3 +41,29 @@ public class Solution {
        
     }
 }
+
+
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[]ergs) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+
+        int i = 2;
+        boolean a = false;
+
+        while (i<=n/2) {
+            if (n%i==0) {
+                System.out.print(i +" ");
+                a = true;
+            }
+            i++;
+        }
+        if (a == false){
+            System.out.println("-1");
+        }
+    }
+}
+
