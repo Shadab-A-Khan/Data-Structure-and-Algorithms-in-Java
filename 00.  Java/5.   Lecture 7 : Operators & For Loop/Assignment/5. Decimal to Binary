@@ -78,6 +78,31 @@ public class Main {
 
 
 
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.close();
+
+        if (n == 0) {
+            System.out.print("0");
+        } else {
+            String binary = "";
+
+            while (n > 0) {
+                int remainder = n % 2;
+                binary = remainder + binary; // Prepend the remainder to the existing string
+                n /= 2;
+            }
+
+            System.out.print(binary);
+        }
+    }
+}
+
+
 
 
 
