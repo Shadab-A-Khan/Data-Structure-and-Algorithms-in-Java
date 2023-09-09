@@ -35,7 +35,6 @@ Sample Output 2:
 
 
 public class Solution {
-
     public static int arrayRotateCheck(int[] arr){
     	//Your code goes here
         int n = arr.length;
@@ -48,7 +47,6 @@ public class Solution {
         }
         return rotation_count;
     }
-
 }
 
 
@@ -80,3 +78,65 @@ public class Solution {
     }
 
 }
+
+
+
+
+
+
+
+
+public class Solution {
+    public static int[] rotateArray(int[] a, int x, String dir) {
+        int n = a.length;
+
+        // Normalize x to be non-negative
+        // x = x % N;
+        // if (x < 0) {
+        //     x += N;
+        // }
+
+        // int[] rotatedArray = new int[N];
+
+        // for (int i = 0; i < N; i++) {
+        //     int newIndex = (dir.equals("LEFT") ? (i + x) % N : (i + N - x) % N);
+        //     rotatedArray[newIndex] = a[i];
+        // }
+
+        // return rotatedArray;
+        x%=n;
+        if(dir.equals("LEFT")){
+            rotateLeft(a,x);
+        }else if(dir.equals("RIGHT")){
+            rotateRIght(a,x);
+        }
+        return a;
+    }
+    public static void rotateLeft(int[] a, int x){
+        int n=a.length;
+        reverse(a,0,n);
+        reverse(a,0,n-x);
+        reverse(a,n-x,n);
+    }
+    public static void rotateRIght(int[] a,int  x){
+        int n=a.length;
+        reverse(a,0,n);
+        reverse(a,0,x);
+        reverse(a,x,n);
+    }
+    public static void reverse(int[] a,int l, int r){
+        for(int i=0; i<(r-l)/2; i++){
+            int temp=a[l+i];
+            a[l+i]=a[r-i-1];
+            a[r-i-1]=temp;
+        }
+    }
+}
+
+
+
+
+
+
+
+
