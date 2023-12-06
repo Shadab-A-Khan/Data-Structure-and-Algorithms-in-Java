@@ -106,5 +106,168 @@ ka 4 add karoge to 4+3=7
         
         aise hee sare number pe karna hai
         
-    
+
+
+
+
+
+
+
+
+
+see if t he number is
+
+123
+
+to revers it
+
+we need 3 from last
+
+right
+
+?
+
+
+yes
+
+so to fetch the last from any number we do n%10
+
+tht gives the last value that is remainder
+
+so
+
+int ans = 0 is the ans for now assume
+
+now
+
+doing
+
+123%10 will get us 3
+
+rigth?
+
+so
+
+update our ans 3
+
+now
+
+ans=3;
+
+out of 123 we have taken 1 value that is 3
+
+now
+
+we need to leave 3 and work on 12
+
+so
+
+123/10
+
+it will give us
+
+12
+
+so
+
+iniation the num was
+
+123
+
+now updat it to
+
+num/10
+
+ok?
+
+
+yeah
+
+now check the loop consiton if the n/10 the new n if it is greater then  0
+
+continue the process
+
+now 
+
+n=12                                                      ans=3 
+
+so
+
+do
+
+n%10 = 2
+
+now we want to inclde it to ans
+
+but if we do
+
+and+2= 3+5
+
+3+2
+
+=5
+
+right
+
+but we want
+
+32
+
+so
+
+3*10 + 2
+
+will do the job
+
+so
+
+we will multioly our ans
+
+by 10
+
+now the
+
+ans=30                                                  remainder = 2                                       n=1
+
+now
+
+an+remainder=32
+
+now 1 is again > 0
+
+so
+
+do the same for 1
+
+1%10 =1 
+
+ans * 10
+
+32*10
+
+=320
+
+add rem
+
+320+1
+
+321
+
+so the vlaue got remvered from
+
+123 to 321
+
+that is why happening in your code
+
+if any doubt please ask
+
+
+cleared
+
+great :)
+
+
+tq
+
+wcm
 
