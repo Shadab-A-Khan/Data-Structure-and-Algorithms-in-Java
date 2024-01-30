@@ -1,0 +1,40 @@
+Composite
+Your task is to write a function named print_composite that checks if there are any composite numbers up to a given number, n.
+
+
+Note :
+A composite number is a positive integer that has at least one positive divisor other than one or itself. In other words, a composite number is any positive integer greater than one that is not a prime number.
+Input:
+The function takes an integer n as input, which represents the upper limit of the range to check for composite numbers.
+Output:
+The function should print composite numbers found within the range from 2 to n (inclusive),
+Sample Input 1:
+20
+Sample Output 1:
+true
+Explanation:
+In this case, the function print_composite is called with n equal to 20. The function returns true because there are composite numbers from 2 to 20.
+
+
+
+
+import java.util.*;
+public class Solution{
+    public static void print_composite(int n)
+    { for (int i = 1; i <= n; i++) {
+            if (isComposite(i)) {
+                System.out.println(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    private static boolean isComposite(int num) {
+        for (int i = 2; i <= num-1; i++) {
+            if (num % i == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
