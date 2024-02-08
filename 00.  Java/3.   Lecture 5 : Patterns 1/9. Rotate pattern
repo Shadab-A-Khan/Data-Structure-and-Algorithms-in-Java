@@ -50,3 +50,97 @@ public class Solution {
         }
     }
 }
+
+
+in every question we fighure out the relation better rows columns and the number that is being printed in a patter problem
+
+in this problem
+
+we are doing the same thing
+
+if the user given value is 
+
+5
+
+sample input 1
+
+so there are 5 rows and 5 colums
+
+so we will use a loop
+
+that will run 5 times for all the rows
+
+and nested loop that will 5 time for all the column of that perticular row
+
+ok
+
+?
+
+so
+
+
+k
+
+see the vaue that is being printed
+
+if you are in row
+
+1
+
+the value starts printing from and going till the max value that should be smaleer the or equal to n
+
+so
+
+in first row
+
+we start printing from
+
+1
+
+that is
+
+1 2 3 4 5
+
+
+k??
+
+now we go to row 2, so we will start priting from 2
+
+2 3 4 5 
+
+here just 4 column got printed
+
+the last clumn remains there should be 5 rows and 5 column , why we stop here ? becuse the 5 == n next value will be greater then n that is 6
+
+so
+
+we will updte the value
+
+to
+
+1
+
+that we were printing
+
+to
+
+1
+
+and the print it
+
+so
+
+it will be like
+
+2 3 4 5 1
+
+third row next is so value will start printing fro  3
+
+3 4 5 1 2
+
+and in fouth row
+
+4 5 1 2 3
+and in 5th
+
+5 1 2 3 4 
