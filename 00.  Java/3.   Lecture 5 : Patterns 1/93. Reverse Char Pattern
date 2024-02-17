@@ -1,0 +1,92 @@
+Print the following pattern for the given N number of rows.
+Pattern for N = 5
+E
+ED
+EDC
+EDCB
+EDCBA
+Input format :
+Integer N (Total no. of rows)
+Output format :
+Pattern in N lines
+Constraints
+0 <= N <= 50
+Sample Input 1:
+7
+
+Sample Output 1:
+G
+GF
+GFE
+GFED
+GFEDC
+GFEDCB
+GFEDCBA
+Sample Input 1:
+6
+Sample Output 1:
+F
+FE
+FED
+FEDC
+FEDCB
+FEDCBA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+see in this patter 
+if the N=5
+there are 5 rows , right?
+
+so use scanner class object  
+
+ask your for an input int value N
+
+and then run a loop n time  , 
+so it can print n rows
+
+now obserb the number of column in
+each row,
+like if we are in row 1 there is 1 column
+if we are in row 2 tehre are 2 column
+if we are in row 4 there are 4 column
+right?
+
+so for column there will be nested loop
+that will run i time, that number of row 
+times
+like i said the number of columns in each
+row is equal to the row number , right?
+
+
+now comes to the print patter
+see if N is 5 it printing firfth character from 5
+
+that is 
+E and start decreasing
+
+if the N=7 smaple input 1
+it is printing 6th chra from A
+that is A B C D E F G
+so it is strting each column with G
+and keep reducing to the prev char by
+1 in each itteration 
+
+
+so we will alswasy print 
+char('A'+n-j)
+
+when one row is completed we
+will change the line for next row
