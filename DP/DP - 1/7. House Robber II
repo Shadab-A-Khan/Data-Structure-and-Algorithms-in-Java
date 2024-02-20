@@ -1,0 +1,98 @@
+Mr. X is a professional robber planning to rob houses along a street. Each house has a certain amount of money hidden.
+
+
+All houses along this street are arranged in a circle. That means the first house is the neighbour of the last one. Meanwhile, adjacent houses have a security system connected, and it will automatically contact the police if two adjacent houses are broken into on the same night.
+
+
+You are given an array/list of non-negative integers 'ARR' representing the amount of money of each house. Your task is to return the maximum amount of money Mr. X can rob tonight without alerting the police.
+
+
+Note:
+It is possible for Mr. X to rob the same amount of money by looting two different sets of houses. Just print the maximum possible robbed amount, irrespective of sets of houses robbed.
+
+
+For example:
+(i) Given the input array arr[] = {2, 3, 2} the output will be 3 because Mr X cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses. So, he’ll rob only house 2 (money = 3)
+
+(ii) Given the input array arr[] = {1, 2, 3, 1} the output will be 4 because Mr X rob house 1 (money = 1) and then rob house 3 (money = 3).
+
+(iii) Given the input array arr[] = {0} the output will be 0 because Mr. X has got nothing to rob.
+Input Format :
+The first line of input contains an integer 'T' representing the number of the test case. Then the test case follows.
+
+The first line of each test case contains an integer, ‘N’ representing the size of the first array/list.
+
+The second line of each test case contains 'N' single space-separated integers representing the array/list elements.
+Output Format :
+For each test case, print a single line containing a single integer denoting the maximum money that can be robbed in a separate line.
+
+The output of each test case will be printed in a separate line.
+Note:
+You do not need to print anything; it has already been taken care of. Just implement the given function.
+Constraints:
+1 <= T <= 10
+1 <= N <= 5 x 10 ^ 3
+1 <= ARR[i] <= 10 ^ 9
+
+Time limit: 1 sec.
+Sample Input 1:
+3
+1
+0
+3
+2 3 2
+4
+1 3 2 1
+Sample Output 1:
+0
+3
+4
+Explanation of Input 1:
+(i) Mr. X has only one house to rob, but with no money.
+
+(ii) Mr. X cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses (remember, it’s a circular street). So, he’ll rob only house 2 (money = 3) with a maximum value
+
+(iii) Mr. X will get maximum value when he robs house 2 (money = 3) and then robs house 4 (money = 1) i.e. 4 units of money.
+Sample Input 2:
+3
+5
+1 5 1 2 6
+3
+2 3 5
+4
+1 3 2 0
+Sample Output 2:
+11
+5
+3
+
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+public static long houseRobber(int[] valueInHouse) {
+		int n=valueInHouse.length;
+		if(n<=2){
+			int max=Integer.MIN_VALUE;
+			for(int num:valueInHouse){
+				if(num>max){
+					max=num;
+				}
+			} 
+			return max;
+		}
+		long [][] dp=new long[n][2];
+		dp[0][1]=valueInHouse[0];
+		dp[0][0]=0;
+		dp[1][0]=valueInHouse[1];
+		dp[1][1]=Math.max(valueInHouse[0],valueInHouse[1]);
+		for(int i=2;i<=n-1;i++){
+			dp[i][0]=Math.max(valueInHouse[i]+dp[i-2][0],dp[i-1][0]);
+			dp[i][1]=Math.max(valueInHouse[i]+dp[i-2][1],dp[i-1][1]);
+		}
+		dp[n-1][0]=Math.max(valueInHouse[n-1]+dp[n-3][0],dp[n-2][0]);
+		dp[n-1][1]=dp[n-2][1];
+		return Math.max(dp[n-1][0], dp[n-1][1]);
+	}
+}
