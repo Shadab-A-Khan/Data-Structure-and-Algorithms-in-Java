@@ -60,7 +60,28 @@ For the third test case we have, array: [-2 ] and N = 1. The array is already ar
 
 
 
-
+public class Solution {
+    public static int[] separateNegativeAndPositive(int a[]) {
+        int si=0;
+        int ei=a.length-1;
+        while(si<=ei){
+            while(si<=ei && a[si]<0){
+                si++;
+            }
+            while(si<=ei && a[ei]>=0){
+                ei--;
+            }
+            if(si<=ei){
+               int temp=a[si];
+               a[si]=a[ei];
+               a[ei]=temp;
+            }
+            si++;
+            ei--;
+        }
+        return a;
+    }
+}
 
 
 
