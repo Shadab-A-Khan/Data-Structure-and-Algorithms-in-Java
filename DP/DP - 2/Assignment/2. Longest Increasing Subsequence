@@ -24,6 +24,35 @@ Sample Output 2 :
 
 
 
+class Solution {
+    public static int longestIncreasingSubsequence(int[] nums) {
+       int[] storage=new int[nums.length];
+       int k=0;
+       storage[k]=nums[0];
+    
+       for(int i=1; i<nums.length; i++){
+           if(nums[i]<storage[k]){
+               int start=0;
+               int end=k;
+               while(start<=end){
+                   int mid=(start+end)/2;
+                   if(storage[mid]<nums[i]){
+                       start=mid+1;
+                   }else{
+                       end=mid-1;
+                   }
+               }
+               storage[start]=nums[i];
+               
+            }else if(storage[k]!=nums[i]){
+               k++;
+               storage[k]=nums[i];
+            }
+       }
+       return k+1;
+    }
+}
+
 
 
 
