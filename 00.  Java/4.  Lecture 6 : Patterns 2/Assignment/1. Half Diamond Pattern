@@ -203,3 +203,31 @@ public class Solution {
         }
     }
 }
+
+
+
+loop1
+upper Triangle
+*
+*1*
+*121*
+*12321*
+*1234321*
+       loop-columns
+       print *
+       logic
+       -increasing numbers
+       -decreasing numbers
+       print *
+
+loop2
+lower Triangle
+*12321*
+*121*
+*1*
+*
+      loop-columns
+       print *
+          -increasing numbers
+          -decreasing numbers
+       print *
