@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static int sqrtN(long N) {
+		if(N==0 || N==1){
+			return (int)N;
+		}
+		long start=1L;
+		long end = N;
+		while(start<end){
+			long mid = (start+end)/2;
+			if(mid<=(N/mid)){
+				start = mid+1;
+			}
+			else{
+				end= mid;
+			}
+		}
+		return (int)start-1;
+	}
+}
