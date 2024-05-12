@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        int z = scanner.nextInt();
+        if (isValidTriangle(x, y, z)) {
+            String triangleType = classifyTriangle(x, y, z);
+            System.out.println(triangleType + " Triangle");
+        } else {
+            System.out.println("Not a Triangle");
+        }
+    }
+    public static boolean isValidTriangle(int x, int y, int z) {
+        return x + y > z && y + z > x && x + z > y;
+    }
+    public static String classifyTriangle(int x, int y, int z) {
+        if (x == y && y == z) {
+            return "Equilateral";
+        } else if (x == y || y == z || x == z) {
+            return "Isosceles";
+        } else {
+            return "Scalene";
+        }
+    }
+}
