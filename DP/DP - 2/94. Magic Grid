@@ -1,0 +1,31 @@
+public class Solution{
+ static int getMinimumStrength(int[][] grid) {
+     int R=grid.length;
+     int C=grid[0].length;
+        int[][] dp = new int[R][C];
+        
+        // Base case: Minimum strength needed at the bottom-right corner
+        dp[R-1][C-1] = Math.max(1, 1 - grid[R-1][C-1]);
+        
+        // Fill the last row
+        for (int j = C - 2; j >= 0; j--) {
+            dp[R-1][j] = Math.max(1, dp[R-1][j+1] - grid[R-1][j]);
+        }
+        
+        // Fill the last column
+        for (int i = R - 2; i >= 0; i--) {
+            dp[i][C-1] = Math.max(1, dp[i+1][C-1] - grid[i][C-1]);
+        }
+        
+        // Fill the rest of the dp table
+        for (int i = R - 2; i >= 0; i--) {
+            for (int j = C - 2; j >= 0; j--) {
+                int minStrengthOnExit = Math.min(dp[i+1][j], dp[i][j+1]);
+                dp[i][j] = Math.max(1, minStrengthOnExit - grid[i][j]);
+            }
+        }
+        
+        // The minimum initial strength needed at the top-left corner
+        return dp[0][0];
+    }
+}
