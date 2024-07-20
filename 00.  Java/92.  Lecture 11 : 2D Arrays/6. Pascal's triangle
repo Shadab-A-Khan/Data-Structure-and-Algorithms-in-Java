@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+       // write your code logic !!
+       Scanner s=new Scanner(System.in);
+       int N=s.nextInt();
+       int i=0;
+       while(i<=N-1)
+       {
+
+           for(int k=0; k<N-i-1; k++){
+              System.out.print(" ");
+           }
+           int value=1;
+           int j=0;
+           while(j<=i)
+           {
+               System.out.print(value);
+               System.out.print(" ");
+               value=value*(i-j)/(j+1);
+               j++;
+           }
+           System.out.println();
+           i++;
+       }
+
+    }
+}
